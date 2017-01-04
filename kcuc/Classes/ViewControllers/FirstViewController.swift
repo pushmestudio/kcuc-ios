@@ -10,7 +10,8 @@ import UIKit
 
 class FirstViewController: UIViewController {
   
-  var viewModel: UsersViewModel!
+  var usersViewModel: UsersViewModel!
+  var pagesViewModel: PagesViewModel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,9 +23,9 @@ class FirstViewController: UIViewController {
         return
       }
       
-      self.viewModel = viewModel
+      self.usersViewModel = viewModel
       
-      print("pageHref: \(viewModel?.pageHref)")
+      print("id: \(viewModel?.users[0].id)")
     }
     
     let pagesParameters: [String: Any] = [ "user": "tkhm" ]
@@ -33,6 +34,8 @@ class FirstViewController: UIViewController {
       if let _ = error {
         return
       }
+      
+      self.pagesViewModel = viewModel
       
       print("id: \(viewModel?.id)")
     }
