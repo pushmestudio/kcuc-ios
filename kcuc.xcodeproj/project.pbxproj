@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A6FE1E1D2BCF00E128B8 /* User.swift */; };
+		B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */; };
 		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
 		B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; };
 		B6B1041E1E0FE3E900C30790 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1041F1E0FE3E900C30790 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; };
 		B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6B104271E12B88900C30790 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104261E12B88900C30790 /* APIClient.swift */; };
+		B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104291E12BD3D00C30790 /* Page.swift */; };
+		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
 		B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC08F1E0F808800041FAC /* AppDelegate.swift */; };
 		B6EDC09A1E0F808800041FAC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC0911E0F808800041FAC /* FirstViewController.swift */; };
 		B6EDC09B1E0F808800041FAC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC0921E0F808800041FAC /* SecondViewController.swift */; };
@@ -39,9 +44,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B658A6FE1E1D2BCF00E128B8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesViewModel.swift; path = ViewModels/PagesViewModel.swift; sourceTree = "<group>"; };
 		B6B104181E0FE3E900C30790 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		B6B104191E0FE3E900C30790 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		B6B104261E12B88900C30790 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Managers/APIClient.swift; sourceTree = "<group>"; };
+		B6B104291E12BD3D00C30790 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
+		B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersViewModel.swift; path = ViewModels/UsersViewModel.swift; sourceTree = "<group>"; };
 		B6EDC0771E0F7E3400041FAC /* kcuc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kcuc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EDC08F1E0F808800041FAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EDC0911E0F808800041FAC /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +86,32 @@
 			name = Libs;
 			sourceTree = "<group>";
 		};
+		B6B104241E12B7F800C30790 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6B104291E12BD3D00C30790 /* Page.swift */,
+				B658A6FE1E1D2BCF00E128B8 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		B6B104251E12B86800C30790 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B6B104261E12B88900C30790 /* APIClient.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		B6B104281E12BC9800C30790 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */,
+				B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		B6EDC06E1E0F7E3400041FAC = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +142,9 @@
 		B6EDC08E1E0F808800041FAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B6B104251E12B86800C30790 /* Managers */,
+				B6B104241E12B7F800C30790 /* Models */,
+				B6B104281E12BC9800C30790 /* ViewModels */,
 				B6EDC0901E0F808800041FAC /* ViewControllers */,
 				B6EDC08F1E0F808800041FAC /* AppDelegate.swift */,
 			);
@@ -235,8 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EDC09B1E0F808800041FAC /* SecondViewController.swift in Sources */,
+				B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */,
 				B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */,
+				B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */,
 				B6EDC09A1E0F808800041FAC /* FirstViewController.swift in Sources */,
+				B6B104271E12B88900C30790 /* APIClient.swift in Sources */,
+				B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */,
+				B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

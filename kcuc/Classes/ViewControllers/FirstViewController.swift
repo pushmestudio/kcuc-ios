@@ -9,9 +9,33 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+  
+  var viewModel: UsersViewModel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let parameters: [String: Any] = [ "href": "SSMTU9/welcometoibmverse.html" ]
+    
+    UsersViewModel.initialize(with: parameters) { (viewModel, error) in
+      if let _ = error {
+        return
+      }
+      
+      self.viewModel = viewModel
+      
+      print("pageHref: \(viewModel?.pageHref)")
+    }
+    
+    let pagesParameters: [String: Any] = [ "user": "tkhm" ]
+    
+    PagesViewModel.initialize(with: pagesParameters) { (viewModel, error) in
+      if let _ = error {
+        return
+      }
+      
+      print("id: \(viewModel?.id)")
+    }
   }
   
   override func didReceiveMemoryWarning() {
