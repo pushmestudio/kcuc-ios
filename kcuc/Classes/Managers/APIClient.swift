@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-private let basePath = "https://kcuc.mybluemix.net/api"
+private let basePath = "https://kcuc.mybluemix.net/rest-v1"
 
 class APIClient {
   /**
@@ -23,8 +23,8 @@ class APIClient {
    */
   class func request(with method: HTTPMethod,
                      path: String,
-                     parameters: [String: Any]?,
-                     handler: ((_ result: JSON?, _ error: Error?) -> Void)?) {
+                     parameters: [String: Any]? = nil,
+                     handler: ((JSON?, Error?) -> Void)? = nil) {
     
     // TODO: add base parameters if needed
     var requestParameters: [String: Any] = [:]

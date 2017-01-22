@@ -7,20 +7,21 @@
 //
 
 import ObjectMapper
+import CocoaLumberjackSwift
 
 class PagesViewModel: Mappable {
-  var id: String = ""
-  var pages: [Page] = []
+  var subscribedPages: [Page] = []
+  var userName: String = ""
   
   required init?(map: Map) { }
   
   func mapping(map: Map) {
-    id <- map["id"]
-    pages <- map["pages"]
+    subscribedPages <- map["subscribedPages"]
+    userName <- map["userName"]
   }
   
   class func initialize(with parameters: [String: Any]?,
-                        handler: ((_ viewModel: PagesViewModel?, _ error: Error?)-> Void)?) {
+                        handler: ((PagesViewModel?, Error?)-> Void)?) {
     APIClient.request(with: .get, path: "/check/pages", parameters: parameters) { (result, error) in
       if let error = error {
         handler?(nil, error)

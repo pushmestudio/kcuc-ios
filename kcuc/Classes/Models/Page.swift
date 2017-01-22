@@ -10,12 +10,16 @@ import ObjectMapper
 
 struct Page: Mappable {
   var isUpdated: Bool = false
-  var pageHref: NSURL?
+  var pageHref: URL?
+  var prodId: String!
+  var updatedTime: UInt?
   
   init?(map: Map) { }
   
   mutating func mapping(map: Map) {
     isUpdated <- map["isUpdated"]
-    pageHref <- map["pageHref"]
+    pageHref <- (map["pageHref"], URLTransform())
+    prodId <- map["prodId"]
+    updatedTime <- map["updatedTime"]
   }
 }

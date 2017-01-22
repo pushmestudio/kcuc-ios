@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; };
+		B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */; };
+		B60EB22D1E324A50004C67FF /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B60EB2331E342AB7004C67FF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2321E342AB7004C67FF /* MainTabBarController.swift */; };
+		B60EB2361E342FB4004C67FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2351E342FB4004C67FF /* LoginViewController.swift */; };
+		B60EB2391E343A33004C67FF /* SubscribedPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */; };
+		B60EB23D1E343CAB004C67FF /* SubscribedPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */; };
+		B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */; };
 		B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A6FE1E1D2BCF00E128B8 /* User.swift */; };
 		B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */; };
 		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
@@ -19,7 +28,6 @@
 		B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104291E12BD3D00C30790 /* Page.swift */; };
 		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
 		B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC08F1E0F808800041FAC /* AppDelegate.swift */; };
-		B6EDC09A1E0F808800041FAC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC0911E0F808800041FAC /* FirstViewController.swift */; };
 		B6EDC09B1E0F808800041FAC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC0921E0F808800041FAC /* SecondViewController.swift */; };
 		B6EDC09C1E0F808800041FAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0941E0F808800041FAC /* Main.storyboard */; };
 		B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0961E0F808800041FAC /* Assets.xcassets */; };
@@ -34,7 +42,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */,
 				B6B1041E1E0FE3E900C30790 /* ObjectMapper.framework in Embed Frameworks */,
+				B60EB22D1E324A50004C67FF /* CocoaLumberjack.framework in Embed Frameworks */,
 				B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */,
 				B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
@@ -44,6 +54,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = ../Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = ../Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDLogFormatterExtension.swift; path = Extensions/DDLogFormatterExtension.swift; sourceTree = "<group>"; };
+		B60EB2321E342AB7004C67FF /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = Main/MainTabBarController.swift; sourceTree = "<group>"; };
+		B60EB2351E342FB4004C67FF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
+		B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribedPageCell.swift; path = Views/Subscribed/SubscribedPageCell.swift; sourceTree = "<group>"; };
+		B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedPagesViewController.swift; sourceTree = "<group>"; };
 		B658A6FE1E1D2BCF00E128B8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesViewModel.swift; path = ViewModels/PagesViewModel.swift; sourceTree = "<group>"; };
 		B6B104181E0FE3E900C30790 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -54,7 +71,6 @@
 		B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersViewModel.swift; path = ViewModels/UsersViewModel.swift; sourceTree = "<group>"; };
 		B6EDC0771E0F7E3400041FAC /* kcuc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kcuc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EDC08F1E0F808800041FAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6EDC0911E0F808800041FAC /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		B6EDC0921E0F808800041FAC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B6EDC0941E0F808800041FAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B6EDC0961E0F808800041FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,7 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */,
 				B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */,
+				B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */,
 				B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */,
 				B6B1041F1E0FE3E900C30790 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -76,10 +94,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60EB22E1E324EBB004C67FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B60EB2311E342A8A004C67FF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB2321E342AB7004C67FF /* MainTabBarController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		B60EB2341E342F9F004C67FF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB2351E342FB4004C67FF /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		B60EB2371E343A06004C67FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB23A1E343A39004C67FF /* Subscribed */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B60EB23A1E343A39004C67FF /* Subscribed */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */,
+			);
+			name = Subscribed;
+			sourceTree = "<group>";
+		};
+		B60EB23B1E343CAB004C67FF /* Subscribed */ = {
+			isa = PBXGroup;
+			children = (
+				B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */,
+			);
+			path = Subscribed;
+			sourceTree = "<group>";
+		};
 		B6B104221E0FE48D00C30790 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
 				B6B104181E0FE3E900C30790 /* Alamofire.framework */,
+				B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */,
+				B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */,
 				B6B104191E0FE3E900C30790 /* ObjectMapper.framework */,
 				B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */,
 			);
@@ -142,8 +210,10 @@
 		B6EDC08E1E0F808800041FAC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B60EB22E1E324EBB004C67FF /* Extensions */,
 				B6B104251E12B86800C30790 /* Managers */,
 				B6B104241E12B7F800C30790 /* Models */,
+				B60EB2371E343A06004C67FF /* Views */,
 				B6B104281E12BC9800C30790 /* ViewModels */,
 				B6EDC0901E0F808800041FAC /* ViewControllers */,
 				B6EDC08F1E0F808800041FAC /* AppDelegate.swift */,
@@ -154,7 +224,9 @@
 		B6EDC0901E0F808800041FAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B6EDC0911E0F808800041FAC /* FirstViewController.swift */,
+				B60EB2341E342F9F004C67FF /* Login */,
+				B60EB2311E342A8A004C67FF /* Main */,
+				B60EB23B1E343CAB004C67FF /* Subscribed */,
 				B6EDC0921E0F808800041FAC /* SecondViewController.swift */,
 			);
 			path = ViewControllers;
@@ -258,6 +330,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjackSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjack.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -273,13 +347,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60EB2391E343A33004C67FF /* SubscribedPageCell.swift in Sources */,
+				B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */,
 				B6EDC09B1E0F808800041FAC /* SecondViewController.swift in Sources */,
 				B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */,
+				B60EB23D1E343CAB004C67FF /* SubscribedPagesViewController.swift in Sources */,
+				B60EB2331E342AB7004C67FF /* MainTabBarController.swift in Sources */,
 				B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */,
 				B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */,
-				B6EDC09A1E0F808800041FAC /* FirstViewController.swift in Sources */,
 				B6B104271E12B88900C30790 /* APIClient.swift in Sources */,
 				B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */,
+				B60EB2361E342FB4004C67FF /* LoginViewController.swift in Sources */,
 				B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

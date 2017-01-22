@@ -9,13 +9,13 @@
 import ObjectMapper
 
 class UsersViewModel: Mappable {
-  var users: [User] = []
+  var subscribers: [User] = []
   var pageHref: String = ""
   
   required init?(map: Map) { }
   
   func mapping(map: Map) {
-    users <- map["userList"]
+    subscribers <- map["subscribers"]
     pageHref <- map["pageHref"]
   }
   
