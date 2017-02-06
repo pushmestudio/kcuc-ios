@@ -16,6 +16,7 @@
 		B60EB2391E343A33004C67FF /* SubscribedPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */; };
 		B60EB23D1E343CAB004C67FF /* SubscribedPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */; };
 		B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */; };
+		B637D37D1E48AFDD004051AA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637D37C1E48AFDD004051AA /* PageViewController.swift */; };
 		B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A6FE1E1D2BCF00E128B8 /* User.swift */; };
 		B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */; };
 		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
@@ -29,10 +30,10 @@
 		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
 		B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC08F1E0F808800041FAC /* AppDelegate.swift */; };
 		B6EDC09B1E0F808800041FAC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC0921E0F808800041FAC /* SecondViewController.swift */; };
-		B6EDC09C1E0F808800041FAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0941E0F808800041FAC /* Main.storyboard */; };
 		B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0961E0F808800041FAC /* Assets.xcassets */; };
 		B6EDC09E1E0F808800041FAC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0971E0F808800041FAC /* Info.plist */; };
 		B6EDC09F1E0F808800041FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0981E0F808800041FAC /* LaunchScreen.storyboard */; };
+		B6F5E1FE1E48B709007C042A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F5E1FD1E48B709007C042A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,7 @@
 		B60EB2351E342FB4004C67FF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribedPageCell.swift; path = Views/Subscribed/SubscribedPageCell.swift; sourceTree = "<group>"; };
 		B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedPagesViewController.swift; sourceTree = "<group>"; };
+		B637D37C1E48AFDD004051AA /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = Pages/PageViewController.swift; sourceTree = "<group>"; };
 		B658A6FE1E1D2BCF00E128B8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesViewModel.swift; path = ViewModels/PagesViewModel.swift; sourceTree = "<group>"; };
 		B6B104181E0FE3E900C30790 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -72,10 +74,10 @@
 		B6EDC0771E0F7E3400041FAC /* kcuc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kcuc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EDC08F1E0F808800041FAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EDC0921E0F808800041FAC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		B6EDC0941E0F808800041FAC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B6EDC0961E0F808800041FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6EDC0971E0F808800041FAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6EDC0981E0F808800041FAC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6F5E1FD1E48B709007C042A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,14 @@
 				B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */,
 			);
 			path = Subscribed;
+			sourceTree = "<group>";
+		};
+		B637D37B1E48AFC0004051AA /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				B637D37C1E48AFDD004051AA /* PageViewController.swift */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		B6B104221E0FE48D00C30790 /* Libs */ = {
@@ -226,6 +236,7 @@
 			children = (
 				B60EB2341E342F9F004C67FF /* Login */,
 				B60EB2311E342A8A004C67FF /* Main */,
+				B637D37B1E48AFC0004051AA /* Pages */,
 				B60EB23B1E343CAB004C67FF /* Subscribed */,
 				B6EDC0921E0F808800041FAC /* SecondViewController.swift */,
 			);
@@ -235,7 +246,7 @@
 		B6EDC0931E0F808800041FAC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B6EDC0941E0F808800041FAC /* Main.storyboard */,
+				B6F5E1FD1E48B709007C042A /* Main.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -313,8 +324,8 @@
 			files = (
 				B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */,
 				B6EDC09F1E0F808800041FAC /* LaunchScreen.storyboard in Resources */,
-				B6EDC09C1E0F808800041FAC /* Main.storyboard in Resources */,
 				B6EDC09E1E0F808800041FAC /* Info.plist in Resources */,
+				B6F5E1FE1E48B709007C042A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +368,7 @@
 				B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */,
 				B6B104271E12B88900C30790 /* APIClient.swift in Sources */,
 				B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */,
+				B637D37D1E48AFDD004051AA /* PageViewController.swift in Sources */,
 				B60EB2361E342FB4004C67FF /* LoginViewController.swift in Sources */,
 				B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */,
 			);

@@ -13,6 +13,6 @@ class SubscribedPageCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   
   func set(page:Page) {
-    titleLabel.text = page.prodId
+    titleLabel.text = page.prodName
   }
 }

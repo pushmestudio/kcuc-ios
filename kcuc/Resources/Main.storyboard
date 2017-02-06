@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P0W-7w-Wem" id="htl-EZ-IbO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdU-36-0KR">
@@ -58,7 +58,7 @@
         <scene sceneID="YLC-51-3wx">
             <objects>
                 <navigationController id="xvG-Po-TJa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Subscribed" image="first" id="TlH-XS-hka"/>
+                    <tabBarItem key="tabBarItem" title="Subscribed" image="iconSearch" id="TlH-XS-hka"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYm-P9-1Dk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -71,11 +71,11 @@
             </objects>
             <point key="canvasLocation" x="827" y="-299"/>
         </scene>
-        <!--Products-->
+        <!--Search-->
         <scene sceneID="GyN-vx-jXi">
             <objects>
                 <navigationController id="E2p-ET-7lJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Products" image="second" id="UWg-bd-QFv"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="iconSubscribed" id="UWg-bd-QFv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bTj-VN-3bR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Products" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="89" y="263" width="143" height="42"/>
+                                <rect key="frame" x="88.5" y="263" width="143" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -206,7 +206,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="iconSearch" width="23" height="23"/>
+        <image name="iconSubscribed" width="23" height="23"/>
     </resources>
 </document>

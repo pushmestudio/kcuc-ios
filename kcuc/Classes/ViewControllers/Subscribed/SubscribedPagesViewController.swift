@@ -12,6 +12,14 @@ import CocoaLumberjackSwift
 class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let navigationButton = UIBarButtonItem()
+    navigationButton.title = "戻る"
+    navigationItem.backBarButtonItem = navigationButton
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -55,5 +63,11 @@ class SubscribedPagesViewController: UITableViewController {
     let page = viewModel.subscribedPages[indexPath.row]
     
     DDLogDebug("href: \(page.pageHref?.absoluteString ?? "no referrer")")
+    
+    if let absoluteString = page.pageHref?.absoluteString {
+      let viewController = PageViewController(url: absoluteString)
+      
+      navigationController?.pushViewController(viewController, animated: true)
+    }
   }
 }
