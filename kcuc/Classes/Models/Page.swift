@@ -11,7 +11,8 @@ import ObjectMapper
 struct Page: Mappable {
   var isUpdated: Bool = false
   var pageHref: URL?
-  var prodId: String!
+  var prodName: String!
+  var userId: String!
   var updatedTime: UInt?
   
   init?(map: Map) { }
@@ -19,7 +20,8 @@ struct Page: Mappable {
   mutating func mapping(map: Map) {
     isUpdated <- map["isUpdated"]
     pageHref <- (map["pageHref"], URLTransform())
-    prodId <- map["prodId"]
+    prodName <- map["prodName"]
+    userId <- map["userId"]
     updatedTime <- map["updatedTime"]
   }
 }
