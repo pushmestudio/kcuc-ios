@@ -26,20 +26,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdU-36-0KR">
-                                            <rect key="frame" x="18" y="19" width="284" height="21"/>
+                                            <rect key="frame" x="18" y="9.5" width="284" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rY5-2E-mW3">
+                                            <rect key="frame" x="18" y="33.5" width="284" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rY5-2E-mW3" secondAttribute="trailing" constant="10" id="7ja-Cx-PmE"/>
+                                        <constraint firstItem="rY5-2E-mW3" firstAttribute="leading" secondItem="htl-EZ-IbO" secondAttribute="leadingMargin" constant="10" id="MgY-CK-Fma"/>
+                                        <constraint firstItem="rY5-2E-mW3" firstAttribute="top" secondItem="VdU-36-0KR" secondAttribute="bottom" constant="3" id="Oew-i0-YbC"/>
                                         <constraint firstItem="VdU-36-0KR" firstAttribute="leading" secondItem="htl-EZ-IbO" secondAttribute="leadingMargin" constant="10" id="ark-Wa-2Mp"/>
-                                        <constraint firstItem="VdU-36-0KR" firstAttribute="centerY" secondItem="htl-EZ-IbO" secondAttribute="centerY" id="bCv-GK-jMR"/>
+                                        <constraint firstItem="VdU-36-0KR" firstAttribute="centerY" secondItem="htl-EZ-IbO" secondAttribute="centerY" constant="-10" id="bCv-GK-jMR"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="VdU-36-0KR" secondAttribute="trailing" constant="10" id="nfP-1J-5HP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="VdU-36-0KR" id="wOr-9r-ciZ"/>
+                                    <outlet property="updateDateLabel" destination="rY5-2E-mW3" id="WVh-jm-rKa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +68,7 @@
         <scene sceneID="YLC-51-3wx">
             <objects>
                 <navigationController id="xvG-Po-TJa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Subscribed" image="iconSearch" id="TlH-XS-hka"/>
+                    <tabBarItem key="tabBarItem" title="Subscribed" image="iconSubscribed" id="TlH-XS-hka"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYm-P9-1Dk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +85,7 @@
         <scene sceneID="GyN-vx-jXi">
             <objects>
                 <navigationController id="E2p-ET-7lJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="iconSubscribed" id="UWg-bd-QFv"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="iconSearch" id="UWg-bd-QFv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bTj-VN-3bR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
