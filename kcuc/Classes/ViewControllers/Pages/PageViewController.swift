@@ -34,10 +34,29 @@ class PageViewController: UIViewController {
     webView.navigationDelegate = self
     view.addSubview(webView)
     
+    let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "iconExtarnal"),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(copyURL))
+    navigationItem.rightBarButtonItem = rightButton
+    navigationItem.rightBarButtonItem!.isEnabled = false
+    
     DDLogDebug("url: \(url.absoluteString)")
     
     let request = URLRequest(url: url)
     webView.load(request)
+  }
+  
+  @objc private func copyURL() {
+    guard let urlString = webView.url?.absoluteString else { return }
+    
+    UIPasteboard.general.string = urlString
+    
+    let alert: UIAlertController = UIAlertController(title: nil, message: "URLをコピーしました", preferredStyle: .alert)
+    let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    alert.addAction(confirm)
+    
+    present(alert, animated: true)
   }
 }
 
@@ -56,5 +75,7 @@ extension PageViewController: WKNavigationDelegate {
     if let title = webView.title {
       self.title = title.replacingOccurrences(of: "IBM Knowledge Center - ", with: "")
     }
+    
+    navigationItem.rightBarButtonItem!.isEnabled = true
   }
 }
