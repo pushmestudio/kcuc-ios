@@ -19,7 +19,7 @@ class SubscribedPageCell: UITableViewCell {
     if let date = page.updatedTime {
       let dateFormatter: DateFormatter = DateFormatter()
       dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-      dateFormatter.dateFormat = "YYYY-MM-DD hh:mm:ss"
+      dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
       
       let formattedDate = dateFormatter.string(from: date)
       
