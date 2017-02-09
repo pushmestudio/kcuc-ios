@@ -13,7 +13,7 @@ struct Page: Mappable {
   var pageHref: URL?
   var prodName: String!
   var userId: String!
-  var updatedTime: UInt?
+  var updatedTime: Date?
   
   init?(map: Map) { }
   
@@ -22,6 +22,23 @@ struct Page: Mappable {
     pageHref <- (map["pageHref"], URLTransform())
     prodName <- map["prodName"]
     userId <- map["userId"]
-    updatedTime <- map["updatedTime"]
+    updatedTime <- (map["updatedTime"], UnixDateTransform())
+  }
+}
+
+private class UnixDateTransform: TransformType {
+  typealias Object = Date
+  typealias JSON = String
+  
+  func transformFromJSON(_ value: Any?) -> Date? {
+    guard let value = value as? String, let unixts: Int64 = Int64(value) else { return nil }
+    
+    let timeInterval: Double = Double(unixts / 1000) + Double(unixts % 1000)
+    
+    return Date(timeIntervalSince1970: TimeInterval(timeInterval))
+  }
+  
+  func transformToJSON(_ value: Date?) -> String? {
+    return "\(value?.timeIntervalSince1970 ?? 0)"
   }
 }
