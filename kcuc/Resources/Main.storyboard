@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="827" y="393"/>
         </scene>
-        <!--Product Search View Controller-->
+        <!--Search Product-->
         <scene sceneID="K7Z-eM-d09">
             <objects>
                 <viewController id="WqK-xK-UY2" customClass="ProductSearchViewController" customModule="kcuc" customModuleProvider="target" sceneMemberID="viewController">
@@ -164,7 +164,7 @@
                             <constraint firstItem="AQe-WK-SdY" firstAttribute="top" secondItem="tgh-1Z-2q8" secondAttribute="bottom" id="t21-BI-rqc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GsX-V0-DVc"/>
+                    <navigationItem key="navigationItem" title="Search Product" id="GsX-V0-DVc"/>
                     <connections>
                         <outlet property="searchResultTableView" destination="AQe-WK-SdY" id="fGF-gU-mKG"/>
                         <outlet property="searchTextField" destination="Gh8-rX-QeU" id="HpN-0K-soP"/>

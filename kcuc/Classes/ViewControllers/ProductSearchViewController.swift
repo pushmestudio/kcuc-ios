@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 class ProductSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK:Pproperties
     var viewModel: SearchedProductsViewModel!
-    let appleProducts = ["Mac", "iPhone", "Apple Watch", "iPad"]
     
     @IBOutlet weak var searchTextField: UITextField!        // 検索box
     @IBOutlet weak var searchResultTableView: UITableView!  // 検索結果表示用のtableview
@@ -48,12 +48,10 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -62,26 +60,39 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
         // そのため、あえてOptionalにしてデフォルト値を設けることで、エラーを防止している？
         // print(viewModel?.topics.count ?? 0)
         return viewModel?.topics.count ?? 0
-        // return appleProducts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedProductCell", for: indexPath)
         
         let topic = viewModel.topics[indexPath.row]
-        print(topic)
         // ページ名を取得
         let pageName = topic.label
         // 製品名を取得(未使用).kcucからの返りが配列であるため、productsは配列で受け取る必要がありそう
         // let product = topic.products
         // let productName = product[0].label
-        print(pageName ?? "")
-        // productは[String : AnyObject]のため、textに代入するにはStringにdowncastが必要
-        cell.textLabel?.text = pageName
+        
+        // KCではhtmlで表示する関係上タグが含まれているものがあるので、削除
+        let pageNameWithoutTags = pageName?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+        cell.textLabel?.text = pageNameWithoutTags
 
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let topic = viewModel.topics[indexPath.row]
+        
+        DDLogDebug("href: \(topic.href?.absoluteString ?? "no referrer")")
+        
+        if let absoluteString = topic.href?.absoluteString {
+            let viewController = PageViewController(url: absoluteString)
+            
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -99,21 +110,6 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
     }
     */
 

@@ -18,6 +18,7 @@ import ObjectMapper
 
 struct Topic: Mappable {
     var date: Date?
+    // URLとNSURLの違いがいまいちだけど、URLはNSURLのbridge(=wrapper)という認識でよい？
     var href: URL?
     var label: String!
     var summary: String!

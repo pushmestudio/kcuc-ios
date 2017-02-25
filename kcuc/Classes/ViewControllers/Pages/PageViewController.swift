@@ -29,6 +29,10 @@ class PageViewController: UIViewController {
     
     title = "IBM Knowledge Center"
     
+    // "add(+)"buttonを追加.storyboardでwebviewのsceneが作成されていないのでプログラム的に追加している
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(subscribePage))
+    navigationItem.rightBarButtonItem = addButton
+    
     webView.frame = view.bounds
     webView.backgroundColor = UIColor.white
     webView.navigationDelegate = self
@@ -39,6 +43,10 @@ class PageViewController: UIViewController {
     let request = URLRequest(url: url)
     webView.load(request)
   }
+    
+    func subscribePage() {
+        print("tap add button")
+    }
 }
 
 extension PageViewController: WKNavigationDelegate {
