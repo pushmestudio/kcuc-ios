@@ -25,6 +25,9 @@ class LoginViewController: UIViewController {
       return
     }
     
+    // UserDefaultsは軽易なデータを保管する方法として活用されるケースが多いとのこと
+    // ちなみにSwift3.0以前はNSUserDefaultsという名前であったらしく、以下はSwift3.0の書き方
+    // TODO: userNameをuserIdに変更
     UserDefaults.standard.set(userName, forKey: "kcuc.userName")
     UserDefaults.standard.synchronize()
     

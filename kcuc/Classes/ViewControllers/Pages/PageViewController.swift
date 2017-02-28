@@ -11,10 +11,15 @@ import WebKit
 import CocoaLumberjackSwift
 
 class PageViewController: UIViewController {
+  // MARK:Pproperties
   private let url: URL
+  private let href: String // urlはinitのときにURIになってしまうので、パスだけを保存しておく
   private let webView: WKWebView = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
   
+  var viewModel: SubscribeViewModel!
+  
   init(url: String) {
+    self.href = url
     self.url = URL(string: "http://www.ibm.com/support/knowledgecenter/" +  url)!
     
     super.init(nibName: nil, bundle: nil)
@@ -44,9 +49,24 @@ class PageViewController: UIViewController {
     webView.load(request)
   }
     
-    func subscribePage() {
-        print("tap add button")
+  func subscribePage() {
+    print("tap add button")
+    // userIdをUserDefaultsから取得(objectとして保存されている？のでStringにdowncast)
+    guard let userId = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
+    let pagesParameters: [String: Any] = [ "user": userId, "href": href ]
+    print("userId = \(userId), href = \(href)")
+    print(pagesParameters)
+    
+    // ここが何してるかわからん
+    SubscribeViewModel.initialize(with: pagesParameters){ (viewModel, error) in
+      if let _ = error {
+        print("init error")
+        return
+      }
+      
+      self.viewModel = viewModel
     }
+  }
 }
 
 extension PageViewController: WKNavigationDelegate {
