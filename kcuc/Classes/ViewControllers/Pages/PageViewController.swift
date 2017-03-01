@@ -15,8 +15,7 @@ class PageViewController: UIViewController {
   private let url: URL
   private let href: String // urlはinitのときにURIになってしまうので、パスだけを保存しておく
   private let webView: WKWebView = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
-  
-  var viewModel: SubscribeViewModel!
+  var subscribedPageViewController = SubscribedPagesViewController()
   
   init(url: String) {
     self.href = url
@@ -52,20 +51,19 @@ class PageViewController: UIViewController {
   func subscribePage() {
     print("tap add button")
     // userIdをUserDefaultsから取得(objectとして保存されている？のでStringにdowncast)
-    guard let userId = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
-    let pagesParameters: [String: Any] = [ "user": userId, "href": href ]
-    print("userId = \(userId), href = \(href)")
-    print(pagesParameters)
+    guard let user = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
+    // let pagesParameters: [String: Any] = [ "user": userId, "href": href ]
+    // print("user = \(user), href = \(href)")
+    // print(pagesParameters)
     
-    // APIからの返り値を画面に表示する必要はないので、viewModelは不要？
-    SubscribeViewModel.initialize(with: pagesParameters){ (viewModel, error) in
+    // TODO: 結果(成功 or 失敗)を判断する。完了時のハンドラでsuccess(), error()を作るとか？
+    DescriptionManager.subscribePage(user: user, href: href){ (result, error) in
       if let _ = error {
-        print("init error")
         return
       }
       
-      self.viewModel = viewModel
     }
+    
   }
 }
 
