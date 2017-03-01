@@ -19,7 +19,7 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
   // MARK: Actions
   @IBAction func searchProdctButton(_ sender: UIButton) {
     guard let query = searchTextField.text else { return }
-    let pagesParameters: [String: Any] = [ "query": query ]
+    let pagesParameters: [String: Any] = ["query": query]
     
     // ViewModelのinitializeの結果をclosureで受け取っている? handlerの指定がないのがよくわからない
     SearchedProductsViewModel.initialize(with: pagesParameters){ (viewModel, error) in

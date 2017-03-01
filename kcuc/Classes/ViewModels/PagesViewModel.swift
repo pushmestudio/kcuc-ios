@@ -11,13 +11,15 @@ import CocoaLumberjackSwift
 
 class PagesViewModel: Mappable {
   var subscribedPages: [Page] = []
-  var userName: String = ""
+  var userId: String = ""
+  var code: Int = 0
   
   required init?(map: Map) { }
   
   func mapping(map: Map) {
     subscribedPages <- map["subscribedPages"]
-    userName <- map["userName"]
+    userId <- map["userId"]
+    code <- map["code"]
   }
   
   class func initialize(with parameters: [String: Any]?,
@@ -33,4 +35,5 @@ class PagesViewModel: Mappable {
       handler?(viewModel, nil)
     }
   }
+  
 }
