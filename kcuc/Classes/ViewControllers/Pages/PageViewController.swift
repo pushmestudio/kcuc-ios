@@ -57,7 +57,7 @@ class PageViewController: UIViewController {
     print("userId = \(userId), href = \(href)")
     print(pagesParameters)
     
-    // ここが何してるかわからん
+    // APIからの返り値を画面に表示する必要はないので、viewModelは不要？
     SubscribeViewModel.initialize(with: pagesParameters){ (viewModel, error) in
       if let _ = error {
         print("init error")
