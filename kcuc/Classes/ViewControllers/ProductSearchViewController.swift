@@ -21,7 +21,7 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
     guard let query = searchTextField.text else { return }
     let pagesParameters: [String: Any] = [ "query": query ]
     
-    // ここが何してるかわからん
+    // ViewModelのinitializeの結果をclosureで受け取っている? handlerの指定がないのがよくわからない
     SearchedProductsViewModel.initialize(with: pagesParameters){ (viewModel, error) in
       if let _ = error {
         print("init error")
@@ -57,7 +57,6 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // viewModelはImplicity Unwrapped Optionalなので仮にnilだった場合クラッシュする
     // そのため、あえてOptionalにしてデフォルト値を設けることで、エラーを防止している？
-    // print(viewModel?.topics.count ?? 0)
     return viewModel?.topics.count ?? 0
   }
   
@@ -73,6 +72,7 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
     
     // KCではhtmlで表示する関係上タグが含まれているものがあるので、削除
     let pageNameWithoutTags = pageName?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+    
     cell.textLabel?.text = pageNameWithoutTags
     
     return cell
@@ -91,35 +91,5 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
       navigationController?.pushViewController(viewController, animated: true)
     }
   }
-  
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
-  
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }
