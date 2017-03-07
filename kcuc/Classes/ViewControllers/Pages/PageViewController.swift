@@ -15,7 +15,7 @@ class PageViewController: UIViewController {
   private let url: URL
   private let href: String // urlはinitのときにURIになってしまうので、パスだけを保存しておく
   private let webView: WKWebView = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
-  var subscribedPageViewController = SubscribedPagesViewController()
+  // var subscribedPageViewController = SubscribedPagesViewController()
   
   init(url: String) {
     self.href = url
@@ -49,19 +49,27 @@ class PageViewController: UIViewController {
   }
     
   func subscribePage() {
-    print("tap add button")
     // userIdをUserDefaultsから取得(objectとして保存されている？のでStringにdowncast)
     guard let user = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
-    // let pagesParameters: [String: Any] = [ "user": userId, "href": href ]
-    // print("user = \(user), href = \(href)")
-    // print(pagesParameters)
     
-    // TODO: 結果(成功 or 失敗)を判断する。完了時のハンドラでsuccess(), error()を作るとか？
     DescriptionManager.subscribePage(user: user, href: href){ (result, error) in
+      // nilチェック
       if let _ = error {
+        print(error ?? "some subscribe problem occurred")
         return
+      } else if result!["code"] as! Int != 200 {
+        // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
+        print(result!["detail"] as! String)
+        return
+      } else {
+        print("You've subscribed new page")
       }
+
+      // PageViewControllerからSubscribedPagesViewControllerのインスタンスを取得する美しい方法が思いつかなかったため力業で取得
+      guard let subscribedPagesViewController = self.tabBarController?.viewControllers?[0].childViewControllers[0] as? SubscribedPagesViewController else { return }
       
+      // subscribePageの結果(購読追加後のdictionary)を使って既存インスタンスのviewModelを更新
+      subscribedPagesViewController.updateViewModel(json: result)
     }
     
   }
