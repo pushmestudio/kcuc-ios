@@ -15,7 +15,6 @@ class PageViewController: UIViewController {
   private let url: URL
   private let href: String // urlはinitのときにURIになってしまうので、パスだけを保存しておく
   private let webView: WKWebView = WKWebView(frame: CGRect.zero, configuration: WKWebViewConfiguration())
-  // var subscribedPageViewController = SubscribedPagesViewController()
   
   init(url: String) {
     self.href = url
@@ -33,21 +32,40 @@ class PageViewController: UIViewController {
     
     title = "IBM Knowledge Center"
     
-    // "add(+)"buttonを追加.storyboardでwebviewのsceneが作成されていないのでプログラム的に追加している
-    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(subscribePage))
-    navigationItem.rightBarButtonItem = addButton
-    
     webView.frame = view.bounds
     webView.backgroundColor = UIColor.white
     webView.navigationDelegate = self
     view.addSubview(webView)
+    
+    // "add(+)"buttonを作成.storyboardでwebviewのsceneが作成されていないのでプログラム的に追加している
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(subscribePage))
+    let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "iconExtarnal"),
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(copyURL))
+    // navigationBarに2つのボタンを表示するため一時的に配列化
+    navigationItem.setRightBarButtonItems([addButton, rightButton], animated: true)
+    navigationItem.rightBarButtonItems![1].isEnabled = false
     
     DDLogDebug("url: \(url.absoluteString)")
     
     let request = URLRequest(url: url)
     webView.load(request)
   }
+  
+  @objc private func copyURL() {
+    guard let urlString = webView.url?.absoluteString else { return }
     
+    UIPasteboard.general.string = urlString
+    
+    let alert: UIAlertController = UIAlertController(title: nil, message: "URLをコピーしました", preferredStyle: .alert)
+    let confirm: UIAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+    alert.addAction(confirm)
+    
+    present(alert, animated: true)
+  }
+  
+  // ページを購読する
   func subscribePage() {
     // userIdをUserDefaultsから取得(objectとして保存されている？のでStringにdowncast)
     guard let user = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
@@ -64,14 +82,13 @@ class PageViewController: UIViewController {
       } else {
         print("You've subscribed new page")
       }
-
+      
       // PageViewControllerからSubscribedPagesViewControllerのインスタンスを取得する美しい方法が思いつかなかったため力業で取得
       guard let subscribedPagesViewController = self.tabBarController?.viewControllers?[0].childViewControllers[0] as? SubscribedPagesViewController else { return }
       
       // subscribePageの結果(購読追加後のdictionary)を使って既存インスタンスのviewModelを更新
       subscribedPagesViewController.updateViewModel(json: result)
     }
-    
   }
 }
 
@@ -90,5 +107,7 @@ extension PageViewController: WKNavigationDelegate {
     if let title = webView.title {
       self.title = title.replacingOccurrences(of: "IBM Knowledge Center - ", with: "")
     }
+    
+    navigationItem.rightBarButtonItems![1].isEnabled = true
   }
 }
