@@ -34,7 +34,6 @@ class SubscribedPagesViewController: UITableViewController {
         }
         
         self.viewModel = viewModel
-        
         self.tableView.reloadData()
       }
     }
@@ -70,4 +69,20 @@ class SubscribedPagesViewController: UITableViewController {
       navigationController?.pushViewController(viewController, animated: true)
     }
   }
+  
+  // viewModelの値を更新する
+  func updateViewModel(json: [String: Any]?) {
+    viewModel.updatePagesViewModel(json: json) { (updatedViewModel, error) in
+    
+      // updatedViewModelはOptionalのためnilチェック
+      guard let _ = updatedViewModel else {
+        print("updatedViewModel is nil")
+        return
+      }
+      
+      self.viewModel = updatedViewModel
+      self.tableView.reloadData()
+    }
+  }
+
 }
