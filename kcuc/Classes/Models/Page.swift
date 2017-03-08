@@ -26,7 +26,8 @@ struct Page: Mappable {
   }
 }
 
-private class UnixDateTransform: TransformType {
+// 修飾子のDefaultはinternal(同一モジュールからのアクセス許可)
+class UnixDateTransform: TransformType {
   typealias Object = Date
   typealias JSON = String
   

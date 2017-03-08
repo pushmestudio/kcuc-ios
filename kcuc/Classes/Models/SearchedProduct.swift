@@ -18,7 +18,6 @@ import ObjectMapper
 
 struct Topic: Mappable {
   var date: Date?
-  // URLとNSURLの違いがいまいちだけど、URLはNSURLのbridge(=wrapper)という認識でよい？
   var href: URL?
   var label: String!
   var summary: String!
@@ -47,22 +46,5 @@ struct Product: Mappable {
     // map <=> JSONの紐付け
     href <- (map["href"], URLTransform())
     label <- map["label"]
-  }
-}
-
-private class UnixDateTransform: TransformType {
-  typealias Object = Date
-  typealias JSON = String
-  
-  func transformFromJSON(_ value: Any?) -> Date? {
-    guard let value = value as? String, let unixts: Int64 = Int64(value) else { return nil }
-    
-    let timeInterval: Double = Double(unixts / 1000) + Double(unixts % 1000)
-    
-    return Date(timeIntervalSince1970: TimeInterval(timeInterval))
-  }
-  
-  func transformToJSON(_ value: Date?) -> String? {
-    return "\(value?.timeIntervalSince1970 ?? 0)"
   }
 }

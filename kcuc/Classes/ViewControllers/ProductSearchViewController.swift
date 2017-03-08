@@ -21,8 +21,11 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
     guard let query = searchTextField.text else { return }
     let pagesParameters: [String: Any] = ["query": query]
     
-    // ViewModelのinitializeの結果をclosureで受け取っている? handlerの指定がないのがよくわからない
+    // ViewModelのinitializeの結果を受け取る.Swiftの文法的に引数の最後にあるクロージャは省略可能
+    // func someMethod(foo: String, bar: () -> void) { }というfunctionがあるとするとその呼び出し時は
+    // someMethod(foo: "test") { ... } とすることでhandlerの指定を省略して直接クロージャを渡すことが可能
     SearchedProductsViewModel.initialize(with: pagesParameters){ (viewModel, error) in
+
       if let _ = error {
         print("init error")
         return
@@ -31,13 +34,14 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
       self.viewModel = viewModel
       self.searchResultTableView.reloadData()
     }
+    // )
     
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /* 今回はstoryboardで繋いでいるため記述不要
+    /* storyboardで繋いでいるため記述不要
      searchResultTableView.delegate = self
      searchResultTableView.dataSource = self
      */
