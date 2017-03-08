@@ -10,10 +10,10 @@ import UIKit
 import CocoaLumberjackSwift
 
 class LoginViewController: UIViewController {
-  @IBOutlet weak var userNameInputArea: UITextField!
+  @IBOutlet weak var userIdInputArea: UITextField!
   
   @IBAction func didPressLoginButton(_ sender: UIButton) {
-    guard let userName = userNameInputArea.text, userName.characters.count > 0 else {
+    guard let userId = userIdInputArea.text, userId.characters.count > 0 else {
       let alert = UIAlertController(title: "エラー",
                                     message: "ユーザー名が未入力です",
                                     preferredStyle: .alert)
@@ -26,9 +26,8 @@ class LoginViewController: UIViewController {
     }
     
     // UserDefaultsは軽易なデータを保管する方法として活用されるケースが多いとのこと
-    // ちなみにSwift3.0以前はNSUserDefaultsという名前であったらしく、以下はSwift3.0の書き方
-    // TODO: userNameをuserIdに変更
-    UserDefaults.standard.set(userName, forKey: "kcuc.userName")
+    // Swift3.0からRenameされた(以前はNSUserDefaults)が、bridgeされているため同様に扱える
+    UserDefaults.standard.set(userId, forKey: "kcuc.userId")
     UserDefaults.standard.synchronize()
     
     dismiss(animated: true, completion: nil)

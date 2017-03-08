@@ -206,7 +206,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-FN-bcq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-FN-bcq">
                                 <rect key="frame" x="16" y="164" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.91548084077380953" green="0.91548084077380953" blue="0.91548084077380953" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -227,16 +227,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4Xy-kh-85W" firstAttribute="top" secondItem="WB6-FN-bcq" secondAttribute="bottom" constant="20" id="8AJ-6N-ff1"/>
-                            <constraint firstItem="WB6-FN-bcq" firstAttribute="top" secondItem="W2c-zw-LQ8" secondAttribute="bottom" constant="100" id="DgO-tq-yBJ"/>
                             <constraint firstItem="4Xy-kh-85W" firstAttribute="centerX" secondItem="9vj-AT-wWh" secondAttribute="centerX" id="NkR-S1-Q65"/>
+                            <constraint firstItem="WB6-FN-bcq" firstAttribute="top" secondItem="W2c-zw-LQ8" secondAttribute="bottom" constant="100" id="aOP-Bx-nA5"/>
                             <constraint firstItem="WB6-FN-bcq" firstAttribute="leading" secondItem="9vj-AT-wWh" secondAttribute="leadingMargin" id="b5I-Q1-TXn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WB6-FN-bcq" secondAttribute="trailing" id="whI-bg-ShI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="3Bq-LE-ohj"/>
                     <connections>
-                        <outlet property="nameInput" destination="9vj-AT-wWh" id="oxR-jg-zgv"/>
-                        <outlet property="userNameInputArea" destination="WB6-FN-bcq" id="0pP-5U-pNv"/>
+                        <outlet property="userIdInputArea" destination="WB6-FN-bcq" id="Mha-ET-keB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sV1-kT-stp" userLabel="First Responder" sceneMemberID="firstResponder"/>

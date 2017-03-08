@@ -66,14 +66,16 @@ class PageViewController: UIViewController {
   }
   
   // ページを購読する
-  func subscribePage() {
-    // userIdをUserDefaultsから取得(objectとして保存されている？のでStringにdowncast)
-    guard let user = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
+  // 通常であればクラス内でしか使用されないためprivateをつけるだけでよいが、Objective-Cの機能である#selectorで呼び出されるため@objcも指定する
+  // Obective-CからはsubscribePageに対して参照許可がないためであり、これを許可するために必要である
+  @objc private func subscribePage() {
+    // userIdをUserDefaultsから取得.Stringとして取得すれば良いため"UserDefaults.sring(forKey:)を使用"
+    guard let user = UserDefaults.standard.string(forKey: "kcuc.userId") else { return }
     
     DescriptionManager.subscribePage(user: user, href: href){ (result, error) in
       // nilチェック
       if let _ = error {
-        print(error ?? "some subscribe problem occurred")
+        print(error!.localizedDescription)
         return
       } else if result!["code"] as! Int != 200 {
         // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
