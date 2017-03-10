@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import CocoaLumberjackSwift
 
 class DescriptionManager {
   
@@ -19,8 +20,7 @@ class DescriptionManager {
     let parameters: [String: String] = ["user": user, "href": href]
     APIClient.request(with: .post, path: "/check/pages", parameters: parameters) { (result, error) in
       if let _ = error {
-        // Error.localizedDescription
-        print(error!.localizedDescription)
+        DDLogDebug("Error: \(error?.localizedDescription)")
         completionHandler?(nil, error)
       }
       

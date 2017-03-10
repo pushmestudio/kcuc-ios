@@ -38,9 +38,9 @@ class PagesViewModel: Mappable {
   
   // viewModelを与えられたjsonで上書きする
   func updatePagesViewModel(json: [String: Any]?,
-                            handler: ((PagesViewModel?, Error?)-> Void)?) {
+                            handler: ((PagesViewModel?)-> Void)?) {
     let viewModel = Mapper<PagesViewModel>().map(JSON: json!)
-    handler?(viewModel, nil)
+    handler?(viewModel)
   }
   
 }

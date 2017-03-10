@@ -27,7 +27,7 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
     SearchedProductsViewModel.initialize(with: pagesParameters){ (viewModel, error) in
 
       if let _ = error {
-        print("init error")
+        DDLogDebug("Error: \(error?.localizedDescription)")
         return
       }
       
