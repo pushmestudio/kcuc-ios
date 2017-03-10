@@ -11,6 +11,19 @@ import CocoaLumberjackSwift
 
 class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
+  let center = NotificationCenter.default
+  
+  // UITableViewControllerのsubclassで正しくinitializeを行う方法が曖昧…
+  required init?(coder aDecoder: NSCoder) {
+    //fatalError("init(coder:) has not been implemented")
+    super.init(coder: aDecoder)
+    
+    addObserver()
+  }
+
+  deinit {
+    removeObserver()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -71,11 +84,8 @@ class SubscribedPagesViewController: UITableViewController {
   }
   
   // viewModelの値を更新する
-  func updateViewModel(json: [String: Any]?) {
-    viewModel.updatePagesViewModel(json: json) { (updatedViewModel, error) in
-      if let _ = error {
-        return
-      }
+  private func updateViewModel(json: [String: Any]?) {
+    viewModel.updatePagesViewModel(json: json) { (updatedViewModel) in
       
       // updatedViewModelはOptionalのためnilチェック
       guard let _ = updatedViewModel else {
@@ -87,5 +97,30 @@ class SubscribedPagesViewController: UITableViewController {
       self.tableView.reloadData()
     }
   }
+  
+  // NotificationCenterへの通知登録を行う
+  private func addObserver() {
+    center.addObserver(self, selector: #selector(self.notified(notification:)),
+                       name: .viewModelUpdateNotification, object: nil)
+  }
+  
+  // NotificationCenterからの通知解除を行う
+  private func removeObserver() {
+    // NotificationCenterに登録されているすべての通知を解除
+    center.removeObserver(self)
+  }
+  
+  @objc private func notified(notification: Notification) {
+    // userInfoはOptional型
+    if let userInfo = notification.userInfo {
+      //updateViewModel(json: (userInfo as NSDictionary?) as! [String : Any]?)
+      updateViewModel(json: userInfo as? [String : Any])
+    }
+  }
 
+}
+
+// クラス外からも使用できるようにNSNotification.Nameを拡張
+extension NSNotification.Name {
+  static let viewModelUpdateNotification = NSNotification.Name("viewModelUpdateNotification")
 }

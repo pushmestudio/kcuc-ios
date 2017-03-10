@@ -75,7 +75,7 @@ class PageViewController: UIViewController {
     DescriptionManager.subscribePage(user: user, href: href){ (result, error) in
       // nilチェック
       if let _ = error {
-        print(error!.localizedDescription)
+        DDLogDebug("Error: \(error?.localizedDescription)")
         return
       } else if result!["code"] as! Int != 200 {
         // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
@@ -85,11 +85,9 @@ class PageViewController: UIViewController {
         print("You've subscribed new page")
       }
       
-      // PageViewControllerからSubscribedPagesViewControllerのインスタンスを取得する美しい方法が思いつかなかったため力業で取得
-      guard let subscribedPagesViewController = self.tabBarController?.viewControllers?[0].childViewControllers[0] as? SubscribedPagesViewController else { return }
-      
-      // subscribePageの結果(購読追加後のdictionary)を使って既存インスタンスのviewModelを更新
-      subscribedPagesViewController.updateViewModel(json: result)
+      // NotificationCenterを通してSubscribedPagesViewControllerに通知とsubscribePageの返り値を送信
+      NotificationCenter.default.post(name: .viewModelUpdateNotification, object: nil, userInfo: result)
+
     }
   }
 }
