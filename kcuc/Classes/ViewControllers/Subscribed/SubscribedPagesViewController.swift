@@ -11,6 +11,19 @@ import CocoaLumberjackSwift
 
 class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
+  let center = NotificationCenter.default
+  
+  // UITableViewControllerのsubclassで正しくinitializeを行う方法が曖昧…
+  required init?(coder aDecoder: NSCoder) {
+    //fatalError("init(coder:) has not been implemented")
+    super.init(coder: aDecoder)
+    
+    addObserver()
+  }
+
+  deinit {
+    removeObserver()
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,9 +37,9 @@ class SubscribedPagesViewController: UITableViewController {
     super.viewWillAppear(animated)
     
     if viewModel == nil {
-      guard let userName = UserDefaults.standard.object(forKey: "kcuc.userName") as? String else { return }
+      guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
       
-      let pagesParameters: [String: Any] = [ "user": userName ]
+      let pagesParameters: [String: Any] = [ "user": userId ]
       
       PagesViewModel.initialize(with: pagesParameters) { (viewModel, error) in
         if let _ = error {
@@ -34,7 +47,6 @@ class SubscribedPagesViewController: UITableViewController {
         }
         
         self.viewModel = viewModel
-        
         self.tableView.reloadData()
       }
     }
@@ -70,4 +82,45 @@ class SubscribedPagesViewController: UITableViewController {
       navigationController?.pushViewController(viewController, animated: true)
     }
   }
+  
+  // viewModelの値を更新する
+  private func updateViewModel(json: [String: Any]?) {
+    viewModel.updatePagesViewModel(json: json) { (updatedViewModel) in
+      
+      // updatedViewModelはOptionalのためnilチェック
+      guard let _ = updatedViewModel else {
+        print("updatedViewModel is nil")
+        return
+      }
+      
+      self.viewModel = updatedViewModel
+      self.tableView.reloadData()
+    }
+  }
+  
+  // NotificationCenterへの通知登録を行う
+  private func addObserver() {
+    center.addObserver(self, selector: #selector(self.notified(notification:)),
+                       name: .viewModelUpdateNotification, object: nil)
+  }
+  
+  // NotificationCenterからの通知解除を行う
+  private func removeObserver() {
+    // NotificationCenterに登録されているすべての通知を解除
+    center.removeObserver(self)
+  }
+  
+  @objc private func notified(notification: Notification) {
+    // userInfoはOptional型
+    if let userInfo = notification.userInfo {
+      //updateViewModel(json: (userInfo as NSDictionary?) as! [String : Any]?)
+      updateViewModel(json: userInfo as? [String : Any])
+    }
+  }
+
+}
+
+// クラス外からも使用できるようにNSNotification.Nameを拡張
+extension NSNotification.Name {
+  static let viewModelUpdateNotification = NSNotification.Name("viewModelUpdateNotification")
 }

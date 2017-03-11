@@ -13,8 +13,8 @@ class MainTabBarController: UITabBarController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    if let userName = UserDefaults.standard.object(forKey: "kcuc.userName") as? String {
-      DDLogDebug("login as \(userName)")
+    if let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String {
+      DDLogDebug("login as \(userId)")
     } else {
       performSegue(withIdentifier: "showLoginModal", sender: nil)
     }

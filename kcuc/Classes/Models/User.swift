@@ -9,13 +9,14 @@
 import ObjectMapper
 
 struct User: Mappable {
-  var userName: String!
+  // TODO: codeを追加
+  var userId: String!
   var isUpdated: Bool = false
   
   init?(map: Map) { }
   
   mutating func mapping(map: Map) {
-    userName <- map["userName"]
+    userId <- map["userId"]
     isUpdated <- map["isUpdated"]
   }
 }
