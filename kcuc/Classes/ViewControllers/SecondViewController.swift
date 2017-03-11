@@ -8,4 +8,13 @@
 
 import UIKit
 
-class SecondViewController: UIViewController { }
+class SecondViewController: UIViewController {
+    
+    //MARK: Properties
+    @IBOutlet weak var searchTextFiled: UITextField!
+    
+    
+    //MARK: Actions
+    @IBAction func searchButton(_ sender: UIButton) {
+    }
+}

@@ -11,13 +11,15 @@ import CocoaLumberjackSwift
 
 class PagesViewModel: Mappable {
   var subscribedPages: [Page] = []
-  var userName: String = ""
+  var userId: String = ""
+  var code: Int = 0
   
   required init?(map: Map) { }
   
   func mapping(map: Map) {
     subscribedPages <- map["subscribedPages"]
-    userName <- map["userName"]
+    userId <- map["userId"]
+    code <- map["code"]
   }
   
   class func initialize(with parameters: [String: Any]?,
@@ -33,4 +35,12 @@ class PagesViewModel: Mappable {
       handler?(viewModel, nil)
     }
   }
+  
+  // viewModelを与えられたjsonで上書きする
+  func updatePagesViewModel(json: [String: Any]?,
+                            handler: ((PagesViewModel?)-> Void)?) {
+    let viewModel = Mapper<PagesViewModel>().map(JSON: json!)
+    handler?(viewModel)
+  }
+  
 }
