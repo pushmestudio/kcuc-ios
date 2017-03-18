@@ -26,8 +26,22 @@ class DescriptionManager {
       
       let json = result!.dictionaryObject!
       completionHandler?(json, nil)
-      
     }
-    
+  }
+  
+  // 購読解除
+  class func unSubscribePage(user: String,
+                             href: String,
+                             completionHandler: (([String: Any]?, Error?) -> Void)? = nil) {
+    let parameters: [String: String] = ["user": user, "href": href]
+    APIClient.request(with: .put, path: "/check/pages", parameters: parameters) { (result, error) in
+      if let _ = error {
+        DDLogDebug("Error: \(error?.localizedDescription)")
+        completionHandler?(nil, error)
+      }
+      
+      let json = result!.dictionaryObject!
+      completionHandler?(json, nil)
+    }
   }
 }

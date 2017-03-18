@@ -13,6 +13,15 @@ class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
   let center = NotificationCenter.default
   
+  // MARK: Actions
+  @IBAction func changeEditMode(_ sender: Any) {
+    if(self.tableView.isEditing == true) {
+      self.tableView.isEditing = false
+    } else {
+      self.tableView.isEditing = true
+    }
+  }
+  
   // UITableViewControllerのsubclassで正しくinitializeを行う方法が曖昧…
   required init?(coder aDecoder: NSCoder) {
     //fatalError("init(coder:) has not been implemented")
@@ -80,6 +89,47 @@ class SubscribedPagesViewController: UITableViewController {
       let viewController = PageViewController(url: absoluteString)
       
       navigationController?.pushViewController(viewController, animated: true)
+    }
+  }
+  
+  // cellを削除可能にする
+  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  // Deleteが押されたらcellを削除する
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == UITableViewCellEditingStyle.delete {
+      guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
+      let href = viewModel.subscribedPages[indexPath.row].pageHref?.absoluteString
+
+      // Cloudantから該当のページを削除し、削除後のsubscribePage一覧を受け取る
+      DescriptionManager.unSubscribePage(user: userId, href: href!){ (result, error) in
+        // nilチェック
+        if let _ = error {
+          DDLogDebug("Error: \(error?.localizedDescription)")
+          return
+        } else if result!["code"] as! Int != 200 {
+          // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
+          print(result!["detail"] as! String)
+          return
+        } else {
+          print("unsubscribed page")
+        }
+        
+        // 削除後のsubscribePageを使用してviewModelを更新
+        self.viewModel.updatePagesViewModel(json: result!){ (updatedViewModel) in
+          
+          // updatedViewModelはOptionalのためnilチェック
+          guard let _ = updatedViewModel else {
+            print("updatedViewModel is nil")
+            return
+          }
+          
+          self.viewModel = updatedViewModel
+          self.tableView.reloadData()
+        }
+      }
     }
   }
   
