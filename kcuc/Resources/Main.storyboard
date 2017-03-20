@@ -58,7 +58,13 @@
                             <outlet property="delegate" destination="hTf-Xk-7mw" id="CZX-Ll-YoZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Subscribed" id="O4I-AR-4Kt"/>
+                    <navigationItem key="navigationItem" title="Subscribed" id="O4I-AR-4Kt">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="YhE-2f-rGH">
+                            <connections>
+                                <action selector="changeEditMode:" destination="hTf-Xk-7mw" id="G5X-ID-pkU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVi-tg-c88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

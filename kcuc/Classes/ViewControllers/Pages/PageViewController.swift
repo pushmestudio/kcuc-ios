@@ -82,7 +82,7 @@ class PageViewController: UIViewController {
         print(result!["detail"] as! String)
         return
       } else {
-        print("You've subscribed new page")
+        print("subscribed new page")
       }
       
       // NotificationCenterを通してSubscribedPagesViewControllerに通知とsubscribePageの返り値を送信
