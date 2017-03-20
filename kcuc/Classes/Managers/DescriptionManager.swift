@@ -19,8 +19,9 @@ class DescriptionManager {
                            completionHandler: (([String: Any]?, Error?) -> Void)? = nil) {
     let parameters: [String: String] = ["user": user, "href": href]
     APIClient.request(with: .post, path: "/check/pages", parameters: parameters) { (result, error) in
-      if let _ = error {
-        DDLogDebug("Error: \(error?.localizedDescription)")
+      // nilの判定 + unwrap (if let _ = error でもnilの判定は可能だが、if文中でerrorはOptionalのままとなる）
+      if let error = error {
+        DDLogDebug("Error: \(error.localizedDescription)")
         completionHandler?(nil, error)
       }
       
@@ -35,8 +36,9 @@ class DescriptionManager {
                              completionHandler: (([String: Any]?, Error?) -> Void)? = nil) {
     let parameters: [String: String] = ["user": user, "href": href]
     APIClient.request(with: .put, path: "/check/pages", parameters: parameters) { (result, error) in
-      if let _ = error {
-        DDLogDebug("Error: \(error?.localizedDescription)")
+      // nilの判定 + unwrap (if let _ = error でもnilの判定は可能だが、if文中でerrorはOptionalのままとなる）
+      if let error = error {
+        DDLogDebug("Error: \(error.localizedDescription)")
         completionHandler?(nil, error)
       }
       
