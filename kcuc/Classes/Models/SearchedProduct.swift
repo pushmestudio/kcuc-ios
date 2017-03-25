@@ -35,16 +35,3 @@ struct Topic: Mappable {
     products <- map["products"]
   }
 }
-
-struct Product: Mappable {
-  var href: URL?
-  var label: String!
-  
-  init?(map: Map) { }
-  
-  mutating func mapping(map: Map) {
-    // map <=> JSONの紐付け
-    href <- (map["href"], URLTransform())
-    label <- map["label"]
-  }
-}

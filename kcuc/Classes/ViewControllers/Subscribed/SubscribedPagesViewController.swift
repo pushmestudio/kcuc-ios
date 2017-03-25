@@ -12,10 +12,11 @@ import CocoaLumberjackSwift
 class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
   let center = NotificationCenter.default
+  var product: String!
   
   // MARK: Actions
   @IBAction func changeEditMode(_ sender: Any) {
-    if(self.tableView.isEditing == true) {
+    if self.tableView.isEditing {
       self.tableView.isEditing = false
     } else {
       self.tableView.isEditing = true
@@ -36,28 +37,36 @@ class SubscribedPagesViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    navigationItem.addBackButton()
     
-    let navigationButton = UIBarButtonItem()
-    navigationButton.title = "戻る"
-    navigationItem.backBarButtonItem = navigationButton
+    // 引っ張って更新のアレを追加
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self,
+                              action: #selector(initiateViewModel),
+                              for: .valueChanged)
+    
+    // viewDidLoadはViewController生成時に一度だけ呼ばれるのでここで呼ぶ
+    initiateViewModel()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  @objc private func initiateViewModel() {
+    guard let userId = UserDefaults.standard.string(forKey: "kcuc.userId") else {
+      refreshControl?.endRefreshing()
+      return
+    }
     
-    if viewModel == nil {
-      guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
+    let parameters: [String: Any] = [ "user": userId, "product": product ]
+    
+    PagesViewModel.initialize(with: parameters) { (viewModel, error) in
+      self.refreshControl?.endRefreshing()
       
-      let pagesParameters: [String: Any] = [ "user": userId ]
-      
-      PagesViewModel.initialize(with: pagesParameters) { (viewModel, error) in
-        if let _ = error {
-          return
-        }
-        
-        self.viewModel = viewModel
-        self.tableView.reloadData()
+      if let _ = error {
+        return
       }
+      
+      self.viewModel = viewModel
+      self.tableView.reloadData()
     }
   }
   
