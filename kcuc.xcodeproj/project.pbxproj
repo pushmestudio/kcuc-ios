@@ -24,6 +24,10 @@
 		B637D37D1E48AFDD004051AA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637D37C1E48AFDD004051AA /* PageViewController.swift */; };
 		B658A6FF1E1D2BCF00E128B8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A6FE1E1D2BCF00E128B8 /* User.swift */; };
 		B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */; };
+		B6A782B11E84069A00099C83 /* SubscribedProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B01E84069A00099C83 /* SubscribedProductsViewModel.swift */; };
+		B6A782B31E84080D00099C83 /* SubscribedProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */; };
+		B6A782B51E840A1200099C83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B41E840A1200099C83 /* Product.swift */; };
+		B6A782BB1E8428C600099C83 /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */; };
 		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
 		B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; };
@@ -73,6 +77,10 @@
 		B637D37C1E48AFDD004051AA /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = Pages/PageViewController.swift; sourceTree = "<group>"; };
 		B658A6FE1E1D2BCF00E128B8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesViewModel.swift; path = ViewModels/PagesViewModel.swift; sourceTree = "<group>"; };
+		B6A782B01E84069A00099C83 /* SubscribedProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribedProductsViewModel.swift; path = ViewModels/SubscribedProductsViewModel.swift; sourceTree = "<group>"; };
+		B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedProductsViewController.swift; sourceTree = "<group>"; };
+		B6A782B41E840A1200099C83 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Models/Product.swift; sourceTree = "<group>"; };
+		B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		B6B104181E0FE3E900C30790 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		B6B104191E0FE3E900C30790 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */,
+				B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B60EB23C1E343CAB004C67FF /* SubscribedPagesViewController.swift */,
+				B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */,
 			);
 			path = Subscribed;
 			sourceTree = "<group>";
@@ -176,6 +186,7 @@
 				B6B104291E12BD3D00C30790 /* Page.swift */,
 				89D245501E5ED90E00AC12C3 /* SearchedProduct.swift */,
 				B658A6FE1E1D2BCF00E128B8 /* User.swift */,
+				B6A782B41E840A1200099C83 /* Product.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				B658A7001E1D2C8600E128B8 /* PagesViewModel.swift */,
 				B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */,
 				89D245521E5EE44700AC12C3 /* SearchedProductsViewModel.swift */,
+				B6A782B01E84069A00099C83 /* SubscribedProductsViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -367,11 +379,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A782B51E840A1200099C83 /* Product.swift in Sources */,
 				89D2454F1E5E8D2A00AC12C3 /* ProductSearchViewController.swift in Sources */,
 				B60EB2391E343A33004C67FF /* SubscribedPageCell.swift in Sources */,
+				B6A782B31E84080D00099C83 /* SubscribedProductsViewController.swift in Sources */,
+				B6A782BB1E8428C600099C83 /* UINavigationItemExtension.swift in Sources */,
 				89C9752B1E72B8FB00BD6C3C /* DescriptionManager.swift in Sources */,
 				B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */,
 				B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */,
+				B6A782B11E84069A00099C83 /* SubscribedProductsViewModel.swift in Sources */,
 				B60EB23D1E343CAB004C67FF /* SubscribedPagesViewController.swift in Sources */,
 				B60EB2331E342AB7004C67FF /* MainTabBarController.swift in Sources */,
 				89D245531E5EE44700AC12C3 /* SearchedProductsViewModel.swift in Sources */,
