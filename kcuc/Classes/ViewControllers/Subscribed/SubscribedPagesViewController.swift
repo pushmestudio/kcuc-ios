@@ -8,6 +8,7 @@
 
 import UIKit
 import CocoaLumberjackSwift
+import SVProgressHUD
 
 class SubscribedPagesViewController: UITableViewController {
   var viewModel: PagesViewModel!
@@ -56,9 +57,13 @@ class SubscribedPagesViewController: UITableViewController {
       return
     }
     
+    SVProgressHUD.show()
+    
     let parameters: [String: Any] = [ "user": userId, "product": product ]
     
     PagesViewModel.initialize(with: parameters) { (viewModel, error) in
+      SVProgressHUD.dismiss()
+      
       self.refreshControl?.endRefreshing()
       
       if let _ = error {
@@ -181,5 +186,8 @@ class SubscribedPagesViewController: UITableViewController {
 
 // クラス外からも使用できるようにNSNotification.Nameを拡張
 extension NSNotification.Name {
+  /// ViewModel更新の通知
   static let viewModelUpdateNotification = NSNotification.Name("viewModelUpdateNotification")
+  /// ページ購読
+  static let pageSubscribeNotification = NSNotification.Name("kcuc.pageSubsribeNotification")
 }

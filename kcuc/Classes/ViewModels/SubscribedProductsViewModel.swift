@@ -10,11 +10,17 @@ import Foundation
 import CocoaLumberjackSwift
 import ObjectMapper
 
-class SubscribedProductsViewModel {
+class SubscribedProductsViewModel: Mappable {
   /// 購読済み製品
   var products: [Product] = []
   
   private init() { }
+  
+  required init?(map: Map) { }
+  
+  func mapping(map: Map) {
+    products <- map["subscribedProducts"]
+  }
   
   class func initiate(with name: String,
                       completion: ((SubscribedProductsViewModel?, Error?) -> Void)?) {
@@ -27,11 +33,12 @@ class SubscribedProductsViewModel {
         return
       }
       
-      // 一覧の配列構造的にObjectMapperが使用できないため自力
-      let products = json!["subscribedProducts"].dictionaryObject as! [String: String]
+      guard let json = json?.dictionaryObject else {
+        completion?(nil, nil)
+        return
+      }
       
-      let viewModel: SubscribedProductsViewModel = SubscribedProductsViewModel()
-      viewModel.products = products.map { Product(href: $0, label: $1) }
+      let viewModel = Mapper<SubscribedProductsViewModel>().map(JSON: json)
       
       completion?(viewModel, nil)
     }
