@@ -9,6 +9,7 @@
 import Foundation
 import WebKit
 import CocoaLumberjackSwift
+import SVProgressHUD
 
 class PageViewController: UIViewController {
   // MARK:Pproperties
@@ -53,6 +54,12 @@ class PageViewController: UIViewController {
     webView.load(request)
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    SVProgressHUD.dismiss()
+  }
+  
   @objc private func copyURL() {
     guard let urlString = webView.url?.absoluteString else { return }
     
@@ -72,7 +79,11 @@ class PageViewController: UIViewController {
     // userIdをUserDefaultsから取得.Stringとして取得すれば良いため"UserDefaults.sring(forKey:)を使用"
     guard let user = UserDefaults.standard.string(forKey: "kcuc.userId") else { return }
     
+    SVProgressHUD.show()
+    
     DescriptionManager.subscribePage(user: user, href: href){ (result, error) in
+      SVProgressHUD.dismiss()
+      
       // nilチェック
       if let _ = error {
         DDLogDebug("Error: \(error?.localizedDescription)")
@@ -85,8 +96,12 @@ class PageViewController: UIViewController {
         print("subscribed new page")
       }
       
+      SVProgressHUD.showSuccess(withStatus: "購読！")
+      SVProgressHUD.dismiss(withDelay: 1.0)
+      
       // NotificationCenterを通してSubscribedPagesViewControllerに通知とsubscribePageの返り値を送信
       NotificationCenter.default.post(name: .viewModelUpdateNotification, object: nil, userInfo: result)
+      NotificationCenter.default.post(name: .pageSubscribeNotification, object: nil, userInfo: result)
 
     }
   }

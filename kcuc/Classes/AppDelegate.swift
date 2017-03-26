@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    DDLog.add(DDTTYLogger.sharedInstance()) // TTY = Xcode console
-    DDLog.add(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
+    DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+    DDLog.add(DDASLLogger.sharedInstance) // ASL = Apple System Logs
     
-    DDTTYLogger.sharedInstance().logFormatter = KCUCLogFormatter() // Set custom logger
+    DDTTYLogger.sharedInstance.logFormatter = KCUCLogFormatter() // Set custom logger
     
     return true
   }
