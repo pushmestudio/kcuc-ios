@@ -38,6 +38,7 @@
 		B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104291E12BD3D00C30790 /* Page.swift */; };
 		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
+		B6ECCEA21E887D0100911830 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6ECCEA11E887D0100911830 /* Settings.bundle */; };
 		B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC08F1E0F808800041FAC /* AppDelegate.swift */; };
 		B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0961E0F808800041FAC /* Assets.xcassets */; };
 		B6EDC09E1E0F808800041FAC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0971E0F808800041FAC /* Info.plist */; };
@@ -90,6 +91,7 @@
 		B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		B6B104291E12BD3D00C30790 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 		B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersViewModel.swift; path = ViewModels/UsersViewModel.swift; sourceTree = "<group>"; };
+		B6ECCEA11E887D0100911830 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = kcuc/SupportingFiles/Settings.bundle; sourceTree = "<group>"; };
 		B6EDC0771E0F7E3400041FAC /* kcuc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kcuc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EDC08F1E0F808800041FAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EDC0961E0F808800041FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		B6EDC06E1E0F7E3400041FAC = {
 			isa = PBXGroup;
 			children = (
+				B6ECCEA11E887D0100911830 /* Settings.bundle */,
 				B6EDC0791E0F7E3400041FAC /* kcuc */,
 				B6EDC0781E0F7E3400041FAC /* Products */,
 			);
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6ECCEA21E887D0100911830 /* Settings.bundle in Resources */,
 				B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */,
 				B6EDC09F1E0F808800041FAC /* LaunchScreen.storyboard in Resources */,
 				B6EDC09E1E0F808800041FAC /* Info.plist in Resources */,
