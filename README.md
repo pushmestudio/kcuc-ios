@@ -44,5 +44,5 @@ Knowledge Center Update Checker for iOS
 
     `carthage update --platform iOS --no-use-binaries`によって依存しているライブラリをアップデートする。
 
-    - 参考：[Correct framework DWARFs and symbols to workaround broken debugging 🔥 · Issue #924 · Carthage/Carthage · GitHub](https://github.com/Carthage/Carthage/issues/924)
-    - 参考：[Module compiled with swift 3.0 cannot be imported in Swift 3.0.1](http://stackoverflow.com/questions/40250381/module-compiled-with-swift-3-0-cannot-be-imported-in-swift-3-0-1)
+- 参考：[Correct framework DWARFs and symbols to workaround broken debugging 🔥 · Issue #924 · Carthage/Carthage · GitHub](https://github.com/Carthage/Carthage/issues/924)
+- 参考：[Module compiled with swift 3.0 cannot be imported in Swift 3.0.1](http://stackoverflow.com/questions/40250381/module-compiled-with-swift-3-0-cannot-be-imported-in-swift-3-0-1)
