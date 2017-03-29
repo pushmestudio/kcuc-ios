@@ -28,6 +28,8 @@
 		B6A782B31E84080D00099C83 /* SubscribedProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */; };
 		B6A782B51E840A1200099C83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B41E840A1200099C83 /* Product.swift */; };
 		B6A782BB1E8428C600099C83 /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */; };
+		B6B07A161E87994C0079065F /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B07A151E87994C0079065F /* SVProgressHUD.framework */; };
+		B6B07A171E87994C0079065F /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B07A151E87994C0079065F /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
 		B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; };
@@ -36,6 +38,7 @@
 		B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104291E12BD3D00C30790 /* Page.swift */; };
 		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
+		B6ECCEA21E887D0100911830 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6ECCEA11E887D0100911830 /* Settings.bundle */; };
 		B6EDC0991E0F808800041FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDC08F1E0F808800041FAC /* AppDelegate.swift */; };
 		B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0961E0F808800041FAC /* Assets.xcassets */; };
 		B6EDC09E1E0F808800041FAC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0971E0F808800041FAC /* Info.plist */; };
@@ -50,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B6B07A171E87994C0079065F /* SVProgressHUD.framework in Embed Frameworks */,
 				B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */,
 				B6B1041E1E0FE3E900C30790 /* ObjectMapper.framework in Embed Frameworks */,
 				B60EB22D1E324A50004C67FF /* CocoaLumberjack.framework in Embed Frameworks */,
@@ -81,11 +85,13 @@
 		B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedProductsViewController.swift; sourceTree = "<group>"; };
 		B6A782B41E840A1200099C83 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Product.swift; path = Models/Product.swift; sourceTree = "<group>"; };
 		B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
+		B6B07A151E87994C0079065F /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = ../Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		B6B104181E0FE3E900C30790 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		B6B104191E0FE3E900C30790 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		B6B104291E12BD3D00C30790 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Page.swift; path = Models/Page.swift; sourceTree = "<group>"; };
 		B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersViewModel.swift; path = ViewModels/UsersViewModel.swift; sourceTree = "<group>"; };
+		B6ECCEA11E887D0100911830 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = kcuc/SupportingFiles/Settings.bundle; sourceTree = "<group>"; };
 		B6EDC0771E0F7E3400041FAC /* kcuc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kcuc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EDC08F1E0F808800041FAC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EDC0961E0F808800041FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B07A161E87994C0079065F /* SVProgressHUD.framework in Frameworks */,
 				B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */,
 				B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */,
 				B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */,
@@ -176,6 +183,7 @@
 				B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */,
 				B6B104191E0FE3E900C30790 /* ObjectMapper.framework */,
 				B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */,
+				B6B07A151E87994C0079065F /* SVProgressHUD.framework */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 		B6EDC06E1E0F7E3400041FAC = {
 			isa = PBXGroup;
 			children = (
+				B6ECCEA11E887D0100911830 /* Settings.bundle */,
 				B6EDC0791E0F7E3400041FAC /* kcuc */,
 				B6EDC0781E0F7E3400041FAC /* Products */,
 			);
@@ -343,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6ECCEA21E887D0100911830 /* Settings.bundle in Resources */,
 				B6EDC09D1E0F808800041FAC /* Assets.xcassets in Resources */,
 				B6EDC09F1E0F808800041FAC /* LaunchScreen.storyboard in Resources */,
 				B6EDC09E1E0F808800041FAC /* Info.plist in Resources */,

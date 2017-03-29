@@ -8,10 +8,18 @@
 
 import UIKit
 import CocoaLumberjackSwift
+import SVProgressHUD
 
 class SubscribedProductsViewController: UITableViewController {
   /// ViewModel
   private var viewModel: SubscribedProductsViewModel!
+  
+  private var isNeedUpdate: Bool = false
+  
+  deinit {
+    // Remove all observers
+    NotificationCenter.default.removeObserver(self)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +36,20 @@ class SubscribedProductsViewController: UITableViewController {
     
     // ViewModel生成
     initiateViewModel()
+    
+    // Add observer
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(handlePageSubsribeNotification(_:)),
+                                           name: .pageSubscribeNotification,
+                                           object: nil)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if isNeedUpdate {
+      initiateViewModel()
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -50,16 +72,27 @@ class SubscribedProductsViewController: UITableViewController {
       let product: Product = viewModel.products[indexPath.row]
       
       viewController?.product = product.href?.absoluteString ?? ""
+      viewController?.title = product.label
       
     default:
       break
     }
   }
   
+  @objc private func handlePageSubsribeNotification(_ notification: Notification) {
+    DDLogDebug("Notification: Received page subscribe notification")
+    
+    isNeedUpdate = true
+  }
+  
   @objc private func initiateViewModel() {
     guard let user = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
     
+    SVProgressHUD.show()
+    
     SubscribedProductsViewModel.initiate(with: user) { [weak self] (viewModel, error) in
+      SVProgressHUD.dismiss()
+      
       guard let weakSelf = self else { return }
       
       weakSelf.refreshControl?.endRefreshing()
