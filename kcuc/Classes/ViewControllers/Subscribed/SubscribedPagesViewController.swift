@@ -11,8 +11,8 @@ import CocoaLumberjackSwift
 import SVProgressHUD
 
 class SubscribedPagesViewController: UITableViewController {
-  var viewModel: PagesViewModel!
-  let center = NotificationCenter.default
+  private var viewModel: PagesViewModel!
+  private var isNeedUpdate: Bool = false
   var product: String!
   
   // MARK: Actions
@@ -29,11 +29,15 @@ class SubscribedPagesViewController: UITableViewController {
     //fatalError("init(coder:) has not been implemented")
     super.init(coder: aDecoder)
     
-    addObserver()
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(handlePageSubsribeNotification(_:)),
+                                           name: .pageSubscribeNotification,
+                                           object: nil)
   }
 
   deinit {
-    removeObserver()
+    // Remove all observers
+    NotificationCenter.default.removeObserver(self)
   }
   
   override func viewDidLoad() {
@@ -50,6 +54,21 @@ class SubscribedPagesViewController: UITableViewController {
     // viewDidLoadはViewController生成時に一度だけ呼ばれるのでここで呼ぶ
     initiateViewModel()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if isNeedUpdate {
+      initiateViewModel()
+    }
+  }
+  
+  @objc private func handlePageSubsribeNotification(_ notification: Notification) {
+    DDLogDebug("Notification: Received page subscribe notification")
+    
+    isNeedUpdate = true
+  }
+
   
   @objc private func initiateViewModel() {
     guard let userId = UserDefaults.standard.string(forKey: "kcuc.userId") else {
@@ -72,6 +91,8 @@ class SubscribedPagesViewController: UITableViewController {
       
       self.viewModel = viewModel
       self.tableView.reloadData()
+      
+      self.isNeedUpdate = false
     }
   }
   
@@ -131,54 +152,12 @@ class SubscribedPagesViewController: UITableViewController {
           print("unsubscribed page")
         }
         
-        // 削除後のsubscribePageを使用してviewModelを更新
-        self.viewModel.updatePagesViewModel(json: result!){ (updatedViewModel) in
-          
-          // updatedViewModelはOptionalのためnilチェック
-          guard let _ = updatedViewModel else {
-            print("updatedViewModel is nil")
-            return
-          }
-          
-          self.viewModel = updatedViewModel
-          self.tableView.reloadData()
-        }
+        // editモードを終了する
+        self.tableView.isEditing = false
+        // viewを更新(kcucから最新のデータ取得)
+        self.initiateViewModel()
+        
       }
-    }
-  }
-  
-  // viewModelの値を更新する
-  private func updateViewModel(json: [String: Any]?) {
-    viewModel.updatePagesViewModel(json: json) { (updatedViewModel) in
-      
-      // updatedViewModelはOptionalのためnilチェック
-      guard let _ = updatedViewModel else {
-        print("updatedViewModel is nil")
-        return
-      }
-      
-      self.viewModel = updatedViewModel
-      self.tableView.reloadData()
-    }
-  }
-  
-  // NotificationCenterへの通知登録を行う
-  private func addObserver() {
-    center.addObserver(self, selector: #selector(self.notified(notification:)),
-                       name: .viewModelUpdateNotification, object: nil)
-  }
-  
-  // NotificationCenterからの通知解除を行う
-  private func removeObserver() {
-    // NotificationCenterに登録されているすべての通知を解除
-    center.removeObserver(self)
-  }
-  
-  @objc private func notified(notification: Notification) {
-    // userInfoはOptional型
-    if let userInfo = notification.userInfo {
-      //updateViewModel(json: (userInfo as NSDictionary?) as! [String : Any]?)
-      updateViewModel(json: userInfo as? [String : Any])
     }
   }
 
@@ -186,8 +165,6 @@ class SubscribedPagesViewController: UITableViewController {
 
 // クラス外からも使用できるようにNSNotification.Nameを拡張
 extension NSNotification.Name {
-  /// ViewModel更新の通知
-  static let viewModelUpdateNotification = NSNotification.Name("viewModelUpdateNotification")
   /// ページ購読
   static let pageSubscribeNotification = NSNotification.Name("kcuc.pageSubsribeNotification")
 }

@@ -1,4 +1,4 @@
-Knowledge Center Update Checker for iOS
+Knowledge Center Update Checker Client for iOS
 ============
 
 # Basics:
