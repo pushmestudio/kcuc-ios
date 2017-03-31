@@ -52,6 +52,15 @@ class SubscribedProductsViewController: UITableViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // ログイン画面から遷移してきたとき、ViewModelを生成
+    if viewModel == nil {
+      initiateViewModel()
+    }
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifier = segue.identifier else { return }
     
