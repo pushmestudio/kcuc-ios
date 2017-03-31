@@ -9,37 +9,44 @@
 import ObjectMapper
 
 struct Page: Mappable {
-  var isUpdated: Bool = false
   var pageHref: URL?
-  var prodName: String!
-  var userId: String!
+  var pageName: String!
+  var isUpdated: Bool = false
   var updatedTime: Date?
+  var prodId: String!
+  var prodName: String!
   
   init?(map: Map) { }
   
   mutating func mapping(map: Map) {
-    isUpdated <- map["isUpdated"]
     pageHref <- (map["pageHref"], URLTransform())
+    pageName <- map["pageName"]
+    isUpdated <- map["isUpdated"]
+    updatedTime <- (map["updatedTime"], UnixMilliSecondsDateTranfrom())
+    prodId <- map["prodId"]
     prodName <- map["prodName"]
-    userId <- map["userId"]
-    updatedTime <- (map["updatedTime"], UnixDateTransform())
   }
 }
 
 // 修飾子のDefaultはinternal(同一モジュールからのアクセス許可)
-class UnixDateTransform: TransformType {
+class UnixMilliSecondsDateTranfrom: TransformType {
   typealias Object = Date
-  typealias JSON = String
+  typealias JSON = Double
   
   func transformFromJSON(_ value: Any?) -> Date? {
-    guard let value = value as? String, let unixts: Int64 = Int64(value) else { return nil }
-    
-    let timeInterval: Double = Double(unixts / 1000) + Double(unixts % 1000)
-    
-    return Date(timeIntervalSince1970: TimeInterval(timeInterval))
+    if let timeInt = value as? Double {
+      return Date(timeIntervalSince1970: TimeInterval(timeInt / 1000))
+    }
+    if let timeStr = value as? String {
+      return Date(timeIntervalSince1970: TimeInterval(atof(timeStr) / 1000))
+    }
+    return nil
   }
   
-  func transformToJSON(_ value: Date?) -> String? {
-    return "\(value?.timeIntervalSince1970 ?? 0)"
+  func transformToJSON(_ value: Date?) -> Double? {
+    if let date = value {
+      return Double(date.timeIntervalSince1970)
+    }
+    return nil
   }
 }
