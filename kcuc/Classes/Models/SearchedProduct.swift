@@ -28,7 +28,7 @@ struct Topic: Mappable {
   
   mutating func mapping(map: Map) {
     // map <=> JSONの紐付け
-    date <- (map["date"], UnixDateTransform())
+    date <- (map["date"], UnixMilliSecondsDateTranfrom())
     href <- (map["href"], URLTransform())
     label <- map["label"]
     summary <- map["summary"]
