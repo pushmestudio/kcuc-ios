@@ -65,10 +65,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="nhj-lK-CCT" kind="unwind" identifier="unwindToSubscribedProducts" unwindAction="unwindToSubscribedProductsWithSegue:" id="fdH-Sa-vFr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVi-tg-c88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nhj-lK-CCT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="-300"/>
+            <point key="canvasLocation" x="2539" y="-300"/>
         </scene>
         <!--Subscribed-->
         <scene sceneID="YLC-51-3wx">
