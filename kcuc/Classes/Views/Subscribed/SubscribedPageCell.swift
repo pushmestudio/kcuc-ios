@@ -14,7 +14,7 @@ class SubscribedPageCell: UITableViewCell {
   @IBOutlet weak var updateDateLabel: UILabel!
   
   func set(page: Page) {
-    titleLabel.text = page.prodName
+    titleLabel.text = page.pageName
     
     if let date = page.updatedTime {
       let dateFormatter: DateFormatter = DateFormatter()
