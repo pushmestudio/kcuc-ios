@@ -13,8 +13,19 @@ import SVProgressHUD
 class SubscribedProductsViewController: UITableViewController {
   /// ViewModel
   private var viewModel: SubscribedProductsViewModel!
-  
   private var isNeedUpdate: Bool = false
+  
+  // MARK: Actions
+  @IBAction func changeEditMode(_ sender: Any) {
+    if self.tableView.isEditing {
+      self.tableView.isEditing = false
+    } else {
+      self.tableView.isEditing = true
+    }
+  }
+  
+  // unwind segue 本来ならここでisNeedUpdateをtrueにして項目がなくなった製品も見えなくなるようにしたいのだが上手くいかない
+  @IBAction func unwindToSubscribedProducts(segue: UIStoryboardSegue) {}
   
   deinit {
     // Remove all observers
@@ -71,7 +82,8 @@ class SubscribedProductsViewController: UITableViewController {
       
       let product: Product = viewModel.products[indexPath.row]
       
-      viewController?.product = product.href?.absoluteString ?? ""
+//      viewController?.product = product.href?.absoluteString ?? ""
+      viewController?.product = product.href ?? ""
       viewController?.title = product.label
       
     default:
@@ -105,6 +117,8 @@ class SubscribedProductsViewController: UITableViewController {
       
       weakSelf.viewModel = viewModel
       weakSelf.tableView.reloadData()
+      
+      weakSelf.isNeedUpdate = false
     }
   }
   
@@ -129,4 +143,37 @@ class SubscribedProductsViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "subsribedProducts.pages", sender: indexPath)
   }
+  
+  // cellを削除可能にする
+  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  // Deleteが押されたらcellを削除する
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == UITableViewCellEditingStyle.delete {
+      guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
+      let product = viewModel.products[indexPath.row].href
+      // Cloudantから該当のページを削除し、削除後のsubscribeProducts一覧を受け取る
+      DescriptionManager.unSubscribeProduct(user: userId, product: product!){ (result, error) in
+        // nilチェック
+        if let _ = error {
+          DDLogDebug("Error: \(error?.localizedDescription)")
+          return
+        } else if result!["code"] as! Int != 200 {
+          // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
+          print(result!["detail"] as! String)
+          return
+        } else {
+          print("unsubscribed product")
+        }
+        
+        // editモードを終了する
+        self.tableView.isEditing = false
+        // viewを更新(kcucから最新のデータ取得)
+        self.initiateViewModel()
+      }
+    }
+  }
+
 }

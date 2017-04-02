@@ -10,22 +10,26 @@ import Foundation
 import ObjectMapper
 
 struct Product: Mappable {
-  /// ページのURL
-  var href: URL?
+  /// 製品ID
+//  var href: URL?
+  var href: String!
   /// 製品名
   var label: String!
   
   // Mapperを介さず使用するため定義
   init(href: String, label: String) {
+    /*
     self.href = URL(string: href)
     self.label = label
+    */
   }
   
   init?(map: Map) { }
   
   mutating func mapping(map: Map) {
     // map <=> JSONの紐付け
-    href <- (map["href"], URLTransform())
+//    href <- (map["href"], URLTransform())
+    href <- map["href"]
     label <- map["label"]
   }
 }
