@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,10 +65,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="nhj-lK-CCT" kind="unwind" identifier="unwindToSubscribedProducts" unwindAction="unwindToSubscribedProductsWithSegue:" id="fdH-Sa-vFr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVi-tg-c88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nhj-lK-CCT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="-300"/>
+            <point key="canvasLocation" x="2539" y="-300"/>
         </scene>
         <!--Subscribed-->
         <scene sceneID="YLC-51-3wx">
@@ -110,7 +114,13 @@
                             <outlet property="delegate" destination="DPS-9n-Npn" id="5aB-er-4RU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Subscribed Products" id="oif-j6-oAc"/>
+                    <navigationItem key="navigationItem" title="Subscribed Products" id="oif-j6-oAc">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="2Ab-h4-Hf2">
+                            <connections>
+                                <action selector="changeEditMode:" destination="DPS-9n-Npn" id="KTy-Au-Zxe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="hTf-Xk-7mw" kind="show" identifier="subsribedProducts.pages" id="hPd-lN-2dB"/>
                     </connections>
