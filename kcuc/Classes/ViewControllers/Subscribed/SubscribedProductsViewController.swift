@@ -25,7 +25,9 @@ class SubscribedProductsViewController: UITableViewController {
   }
   
   // unwind segue 本来ならここでisNeedUpdateをtrueにして項目がなくなった製品も見えなくなるようにしたいのだが上手くいかない
-  @IBAction func unwindToSubscribedProducts(segue: UIStoryboardSegue) {}
+  @IBAction func unwindToSubscribedProducts(segue: UIStoryboardSegue) {
+    // isNeedUpdate
+  }
   
   deinit {
     // Remove all observers

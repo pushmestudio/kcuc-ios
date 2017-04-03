@@ -137,7 +137,6 @@ class SubscribedPagesViewController: UITableViewController {
     if editingStyle == UITableViewCellEditingStyle.delete {
       guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
       let href = viewModel.subscribedPages[indexPath.row].pageHref?.absoluteString
-      let pageCount = self.viewModel.subscribedPages.count - 1
 
       // Cloudantから該当のページを削除し、削除後のsubscribePage一覧を受け取る
       DescriptionManager.unSubscribePage(user: userId, href: href!){ (result, error) in
@@ -159,6 +158,7 @@ class SubscribedPagesViewController: UITableViewController {
         self.initiateViewModel()
         
         // viewModel.subscribedPagesが0になったらsubscribedProductsページに戻る
+        let pageCount = self.viewModel.subscribedPages.count
         if pageCount <= 0 {
           self.performSegue(withIdentifier: "unwindToSubscribedProducts", sender: self)
         }
