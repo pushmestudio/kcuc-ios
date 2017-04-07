@@ -30,8 +30,8 @@ class SubscribedPagesViewController: UITableViewController {
     super.init(coder: aDecoder)
     
     NotificationCenter.default.addObserver(self,
-                                           selector: #selector(handlePageSubsribeNotification(_:)),
-                                           name: .pageSubscribeNotification,
+                                           selector: #selector(handlePageSubscribeUpdateNotification(_:)),
+                                           name: .pageSubscribeUpdateNotification,
                                            object: nil)
   }
 
@@ -63,8 +63,8 @@ class SubscribedPagesViewController: UITableViewController {
     }
   }
   
-  @objc private func handlePageSubsribeNotification(_ notification: Notification) {
-    DDLogDebug("Notification: Received page subscribe notification")
+  @objc private func handlePageSubscribeUpdateNotification(_ notification: Notification) {
+    DDLogDebug("Notification: Received page subscribe update notification")
     
     isNeedUpdate = true
   }
@@ -137,30 +137,37 @@ class SubscribedPagesViewController: UITableViewController {
     if editingStyle == UITableViewCellEditingStyle.delete {
       guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
       let href = viewModel.subscribedPages[indexPath.row].pageHref?.absoluteString
-      let pageCount = self.viewModel.subscribedPages.count - 1
 
       // Cloudantから該当のページを削除し、削除後のsubscribePage一覧を受け取る
       DescriptionManager.unSubscribePage(user: userId, href: href!){ (result, error) in
         // nilチェック
-        if let _ = error {
-          DDLogDebug("Error: \(error?.localizedDescription)")
+        if let error = error {
+          DDLogDebug("Error: \(error.localizedDescription)")
           return
         } else if result!["code"] as! Int != 200 {
           // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
-          print(result!["detail"] as! String)
+          DDLogDebug(result!["detail"] as! String)
           return
         } else {
-          print("unsubscribed page")
+          DDLogDebug("unsubscribed page")
         }
         
         // editモードを終了する
         self.tableView.isEditing = false
-        // viewを更新(kcucから最新のデータ取得)
-        self.initiateViewModel()
         
+        // viewModelを更新(subscribedPagesから該当のページを削除)
+        for (index, page) in self.viewModel.subscribedPages.enumerated() {
+          if page.pageHref?.absoluteString == href {
+            self.viewModel.subscribedPages.remove(at: index)
+          }
+        }
+        
+        self.tableView.reloadData()
         // viewModel.subscribedPagesが0になったらsubscribedProductsページに戻る
+        let pageCount = self.viewModel.subscribedPages.count
         if pageCount <= 0 {
-          self.performSegue(withIdentifier: "unwindToSubscribedProducts", sender: self)
+          NotificationCenter.default.post(name: .pageSubscribeUpdateNotification, object: nil, userInfo: result)
+          _ = self.navigationController?.popViewController(animated: true)
         }
       }
     }
@@ -171,5 +178,5 @@ class SubscribedPagesViewController: UITableViewController {
 // クラス外からも使用できるようにNSNotification.Nameを拡張
 extension NSNotification.Name {
   /// ページ購読
-  static let pageSubscribeNotification = NSNotification.Name("kcuc.pageSubsribeNotification")
+  static let pageSubscribeUpdateNotification = NSNotification.Name("kcuc.pageSubscribeUpdateNotification")
 }

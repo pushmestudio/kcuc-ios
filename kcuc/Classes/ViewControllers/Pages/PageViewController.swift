@@ -100,8 +100,7 @@ class PageViewController: UIViewController {
       SVProgressHUD.dismiss(withDelay: 1.0)
       
       // NotificationCenterを通してSubscribedPagesViewControllerに通知とsubscribePageの返り値を送信
-      // NotificationCenter.default.post(name: .viewModelUpdateNotification, object: nil, userInfo: result)
-      NotificationCenter.default.post(name: .pageSubscribeNotification, object: nil, userInfo: result)
+      NotificationCenter.default.post(name: .pageSubscribeUpdateNotification, object: nil, userInfo: result)
 
     }
   }
