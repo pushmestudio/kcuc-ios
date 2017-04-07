@@ -24,9 +24,6 @@ class SubscribedProductsViewController: UITableViewController {
     }
   }
   
-  // unwind segue 本来ならここでisNeedUpdateをtrueにして項目がなくなった製品も見えなくなるようにしたいのだが上手くいかない
-  @IBAction func unwindToSubscribedProducts(segue: UIStoryboardSegue) {}
-  
   deinit {
     // Remove all observers
     NotificationCenter.default.removeObserver(self)
@@ -50,8 +47,8 @@ class SubscribedProductsViewController: UITableViewController {
     
     // Add observer
     NotificationCenter.default.addObserver(self,
-                                           selector: #selector(handlePageSubsribeNotification(_:)),
-                                           name: .pageSubscribeNotification,
+                                           selector: #selector(handlePageSubscribeUpdateNotification(_:)),
+                                           name: .pageSubscribeUpdateNotification,
                                            object: nil)
   }
   
@@ -91,8 +88,8 @@ class SubscribedProductsViewController: UITableViewController {
     }
   }
   
-  @objc private func handlePageSubsribeNotification(_ notification: Notification) {
-    DDLogDebug("Notification: Received page subscribe notification")
+  @objc private func handlePageSubscribeUpdateNotification(_ notification: Notification) {
+    DDLogDebug("Notification: Received page subscribe update notification")
     
     isNeedUpdate = true
   }
@@ -162,10 +159,10 @@ class SubscribedProductsViewController: UITableViewController {
           return
         } else if result!["code"] as! Int != 200 {
           // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
-          print(result!["detail"] as! String)
+          DDLogDebug(result!["detail"] as! String)
           return
         } else {
-          print("unsubscribed product")
+          DDLogDebug("unsubscribed product")
         }
         
         // editモードを終了する
