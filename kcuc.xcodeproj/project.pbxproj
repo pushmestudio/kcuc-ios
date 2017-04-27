@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89BCCF551EB20DED005888DC /* SearchedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCCF541EB20DED005888DC /* SearchedProductCell.swift */; };
 		89C975291E72B8EF00BD6C3C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C975281E72B8EF00BD6C3C /* APIClient.swift */; };
 		89C9752B1E72B8FB00BD6C3C /* DescriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C9752A1E72B8FB00BD6C3C /* DescriptionManager.swift */; };
 		89D2454F1E5E8D2A00AC12C3 /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		89BCCF541EB20DED005888DC /* SearchedProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProductCell.swift; path = Views/Subscribed/SearchedProductCell.swift; sourceTree = "<group>"; };
 		89C975281E72B8EF00BD6C3C /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Managers/APIClient.swift; sourceTree = "<group>"; };
 		89C9752A1E72B8FB00BD6C3C /* DescriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionManager.swift; path = Managers/DescriptionManager.swift; sourceTree = "<group>"; };
 		89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */,
+				89BCCF541EB20DED005888DC /* SearchedProductCell.swift */,
 			);
 			name = Subscribed;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				89C975291E72B8EF00BD6C3C /* APIClient.swift in Sources */,
 				B658A7011E1D2C8600E128B8 /* PagesViewModel.swift in Sources */,
 				89D245511E5ED90E00AC12C3 /* SearchedProduct.swift in Sources */,
+				89BCCF551EB20DED005888DC /* SearchedProductCell.swift in Sources */,
 				B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */,
 				B637D37D1E48AFDD004051AA /* PageViewController.swift in Sources */,
 				B60EB2361E342FB4004C67FF /* LoginViewController.swift in Sources */,
