@@ -14,7 +14,7 @@ extension UINavigationItem {
    */
   func addBackButton() {
     let navigationButton = UIBarButtonItem()
-    navigationButton.title = "戻る"
+    navigationButton.title = "back"
     self.backBarButtonItem = navigationButton
   }
 }

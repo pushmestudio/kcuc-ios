@@ -41,6 +41,8 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.addBackButton()
+
     /* storyboardで繋いでいるため記述不要
      searchResultTableView.delegate = self
      searchResultTableView.dataSource = self

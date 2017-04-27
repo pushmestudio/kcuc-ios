@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P0W-7w-Wem" id="htl-EZ-IbO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdU-36-0KR">
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eay-hW-Fdv" id="rlX-bl-wup">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -142,7 +142,7 @@
             </objects>
             <point key="canvasLocation" x="827" y="393"/>
         </scene>
-        <!--Search Product-->
+        <!--Keyword Search-->
         <scene sceneID="K7Z-eM-d09">
             <objects>
                 <viewController id="WqK-xK-UY2" customClass="ProductSearchViewController" customModule="kcuc" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,11 +169,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e6C-87-eBX" id="fff-yn-1Cz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eEj-40-dwR">
-                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -208,7 +208,7 @@
                             <constraint firstItem="AQe-WK-SdY" firstAttribute="top" secondItem="tgh-1Z-2q8" secondAttribute="bottom" id="t21-BI-rqc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Product" id="GsX-V0-DVc"/>
+                    <navigationItem key="navigationItem" title="Keyword Search" id="GsX-V0-DVc"/>
                     <connections>
                         <outlet property="searchResultTableView" destination="AQe-WK-SdY" id="fGF-gU-mKG"/>
                         <outlet property="searchTextField" destination="Gh8-rX-QeU" id="HpN-0K-soP"/>
