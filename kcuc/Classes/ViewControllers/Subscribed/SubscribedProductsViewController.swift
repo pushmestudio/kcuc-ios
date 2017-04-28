@@ -151,13 +151,14 @@ class SubscribedProductsViewController: UITableViewController {
     if editingStyle == UITableViewCellEditingStyle.delete {
       guard let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String else { return }
       let product = viewModel.products[indexPath.row].href
+      DDLogDebug(product!)
       // Cloudantから該当のページを削除し、削除後のsubscribeProducts一覧を受け取る
       DescriptionManager.unSubscribeProduct(user: userId, product: product!){ (result, error) in
         // nilチェック
         if let _ = error {
           DDLogDebug("Error: \(error?.localizedDescription)")
           return
-        } else if result!["code"] as! Int != 200 {
+        } else if result!["code"] as! Int != 201 {
           // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
           DDLogDebug(result!["detail"] as! String)
           return
