@@ -41,6 +41,8 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    navigationItem.addBackButton()
+
     /* storyboardで繋いでいるため記述不要
      searchResultTableView.delegate = self
      searchResultTableView.dataSource = self
@@ -65,19 +67,20 @@ class ProductSearchViewController: UIViewController, UITableViewDelegate, UITabl
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "SearchedProductCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "searchedProductCell", for: indexPath) as! SearchedProductCell
     
     let topic = viewModel.topics[indexPath.row]
+    cell.set(topic: topic)
     // ページ名を取得
-    let pageName = topic.label
+    // let pageName = topic.label
     // 製品名を取得(未使用).kcucからの返りが配列であるため、productsは配列で受け取る必要がありそう
     // let product = topic.products
     // let productName = product[0].label
     
     // KCではhtmlで表示する関係上タグが含まれているものがあるので、削除
-    let pageNameWithoutTags = pageName?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+    //let pageNameWithoutTags = pageName?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
     
-    cell.textLabel?.text = pageNameWithoutTags
+    // cell.textLabel?.text = pageNameWithoutTags
     
     return cell
   }

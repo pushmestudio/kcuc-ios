@@ -88,15 +88,15 @@ class PageViewController: UIViewController {
       if let _ = error {
         DDLogDebug("Error: \(error?.localizedDescription)")
         return
-      } else if result!["code"] as! Int != 200 {
+      } else if result!["code"] as! Int != 201 {
         // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
-        print(result!["detail"] as! String)
+        DDLogDebug(result!["detail"] as! String)
         return
       } else {
-        print("subscribed new page")
+        DDLogDebug("subscribed new page")
       }
       
-      SVProgressHUD.showSuccess(withStatus: "購読！")
+      SVProgressHUD.showSuccess(withStatus: "Subscribed！")
       SVProgressHUD.dismiss(withDelay: 1.0)
       
       // NotificationCenterを通してSubscribedPagesViewControllerに通知とsubscribePageの返り値を送信

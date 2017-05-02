@@ -144,7 +144,7 @@ class SubscribedPagesViewController: UITableViewController {
         if let error = error {
           DDLogDebug("Error: \(error.localizedDescription)")
           return
-        } else if result!["code"] as! Int != 200 {
+        } else if result!["code"] as! Int != 201 {
           // subscribePageの結果は失敗でもJSONで返ってくるので、中身のステータスコードをチェックしておく
           DDLogDebug(result!["detail"] as! String)
           return
