@@ -19,6 +19,9 @@ DerivedData
 # Carthage
 Carthage/
 
+# Cocoapods
+Pods/
+
 # others
 *.swp
 !.gitkeep

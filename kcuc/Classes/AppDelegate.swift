@@ -8,6 +8,7 @@
 
 import UIKit
 import CocoaLumberjackSwift
+import BluemixAppID
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     DDTTYLogger.sharedInstance.logFormatter = KCUCLogFormatter() // Set custom logger
     
+    let appid = AppID.sharedInstance
+    appid.initialize(tenantId: "3b021b0b-f39d-4e04-b566-4b4fe699f8b0", bluemixRegion: AppID.REGION_US_SOUTH)
+  
     return true
+  }
+  
+  func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+    return AppID.sharedInstance.application(application, open: url, options: options)
   }
   
   func applicationWillResignActive(_ application: UIApplication) {
