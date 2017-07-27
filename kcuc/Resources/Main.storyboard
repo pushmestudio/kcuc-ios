@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P0W-7w-Wem" id="htl-EZ-IbO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdU-36-0KR">
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eay-hW-Fdv" id="rlX-bl-wup">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -169,7 +169,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maM-BC-AOP" id="ftf-kn-zf0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pageName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-s0-UZn">
@@ -308,76 +308,11 @@
                     <connections>
                         <segue destination="xvG-Po-TJa" kind="relationship" relationship="viewControllers" id="oQo-tq-myB"/>
                         <segue destination="E2p-ET-7lJ" kind="relationship" relationship="viewControllers" id="V9o-ad-CJR"/>
-                        <segue destination="PV6-si-kBx" kind="presentation" identifier="showLoginModal" id="aUG-Ku-LQU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="CYk-7k-AOI">
-            <objects>
-                <viewController id="ZOd-Cw-tEY" customClass="LoginViewController" customModule="kcuc" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W2c-zw-LQ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="xFi-yT-2de"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9vj-AT-wWh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User ID" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-FN-bcq">
-                                <rect key="frame" x="16" y="120" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.91548084077380953" green="0.91548084077380953" blue="0.91548084077380953" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CJf-FY-oDv"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-kh-85W">
-                                <rect key="frame" x="141" y="170" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="didPressLoginButton:" destination="ZOd-Cw-tEY" eventType="touchUpInside" id="2Vo-cB-Wm2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4Xy-kh-85W" firstAttribute="top" secondItem="WB6-FN-bcq" secondAttribute="bottom" constant="20" id="8AJ-6N-ff1"/>
-                            <constraint firstItem="4Xy-kh-85W" firstAttribute="centerX" secondItem="9vj-AT-wWh" secondAttribute="centerX" id="NkR-S1-Q65"/>
-                            <constraint firstItem="WB6-FN-bcq" firstAttribute="top" secondItem="W2c-zw-LQ8" secondAttribute="bottom" constant="100" id="aOP-Bx-nA5"/>
-                            <constraint firstItem="WB6-FN-bcq" firstAttribute="leading" secondItem="9vj-AT-wWh" secondAttribute="leadingMargin" id="b5I-Q1-TXn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WB6-FN-bcq" secondAttribute="trailing" id="whI-bg-ShI"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Login" id="3Bq-LE-ohj"/>
-                    <connections>
-                        <outlet property="userIdInputArea" destination="WB6-FN-bcq" id="Mha-ET-keB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sV1-kT-stp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1018" y="1166"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="agR-RN-jDI">
-            <objects>
-                <navigationController id="PV6-si-kBx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VKG-pG-aVe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ZOd-Cw-tEY" kind="relationship" relationship="rootViewController" id="b8v-Y4-xFi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yET-pj-P78" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="1167"/>
         </scene>
     </scenes>
     <resources>
