@@ -20,14 +20,16 @@ class AfterLoginViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
+    // idTokenからユーザ名を取得
     let userId = idToken?.name ?? "Guest"
-    print(idToken?.name ?? "Guest")
-    print(idToken?.email ?? "Guest@example.com")
     
-    // UserDefaultsは軽易なデータを保管する方法として活用されるケースが多いとのこと
-    // Swift3.0からRenameされた(以前はNSUserDefaults)が、bridgeされているため同様に扱える
-    UserDefaults.standard.set(userId, forKey: "kcuc.userId")
-    UserDefaults.standard.synchronize()
+    // ゲストの場合（ユーザ名がない場合）は、UserDefaultsに保存しない
+    if userId != "Guest" {
+      // UserDefaultsは軽易なデータを保管する方法として活用されるケースが多いとのこと
+      // Swift3.0からRenameされた(以前はNSUserDefaults)が、bridgeされているため同様に扱える
+      UserDefaults.standard.set(userId, forKey: "kcuc.userId")
+      UserDefaults.standard.synchronize()
+    }
     
     performSegue(withIdentifier: "AfterLoginSegue", sender: nil)
   }
