@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 import BluemixAppID
 import BMSCore
 
@@ -15,6 +16,20 @@ class AppIDLoginViewController: UIViewController {
   @IBOutlet weak var hint: UILabel!
   override func viewDidLoad() {
     super.viewDidLoad()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String {
+      DDLogDebug("login as \(userId)")
+      
+      // UIApplication.shared.keyWindow?で現在最前面の画面のUIWindowを取得し、そのrootViewControllerを起点とする
+      let mainView  = UIApplication.shared.keyWindow?.rootViewController
+      let afterLoginView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AfterLoginView") as? AfterLoginViewController
+      
+      mainView?.present(afterLoginView!, animated: true, completion: nil)
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -26,7 +41,10 @@ class AppIDLoginViewController: UIViewController {
     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
       // UIApplication.shared.keyWindow?で現在最前面の画面のUIWindowを取得し、そのrootViewControllerを起点とする
       let mainView  = UIApplication.shared.keyWindow?.rootViewController
-      let nextView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AfterLoginView")
+      let afterLoginView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AfterLoginView") as? AfterLoginViewController
+      
+      afterLoginView?.accessToken = accessToken
+      afterLoginView?.idToken = identityToken
       
       /*
       let mainView  = UIApplication.shared.keyWindow?.rootViewController
@@ -49,7 +67,7 @@ class AppIDLoginViewController: UIViewController {
       
       // OAUTH認証完了後、中継用のAfterLoginViewに遷移する
       DispatchQueue.main.async {
-        mainView?.present(nextView, animated: true, completion: nil)
+        mainView?.present(afterLoginView!, animated: true, completion: nil)
       }
     }
     
