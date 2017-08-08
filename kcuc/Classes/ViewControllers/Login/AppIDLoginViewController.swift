@@ -37,6 +37,7 @@ class AppIDLoginViewController: UIViewController {
     
   }
   
+  // OAuth認証成功時の処理
   class delegate : AuthorizationDelegate {
     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
       // UIApplication.shared.keyWindow?で現在最前面の画面のUIWindowを取得し、そのrootViewControllerを起点とする
@@ -45,25 +46,8 @@ class AppIDLoginViewController: UIViewController {
       
       afterLoginView?.accessToken = accessToken
       afterLoginView?.idToken = identityToken
-      
-      /*
-      let mainView  = UIApplication.shared.keyWindow?.rootViewController
-      let afterLoginView  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AfterLoginView") as? AfterLoginViewController
-      afterLoginView?.accessToken = accessToken
-      afterLoginView?.idToken = identityToken
-      
-      afterLoginView?.selectHintMessage(prevAnon: (TokenStorageManager.sharedInstance.loadStoredToken() != nil), prevId: TokenStorageManager.sharedInstance.loadUserId(), currentAnon: accessToken.isAnonymous, currentId: accessToken.subject!)
-      
-      if accessToken.isAnonymous {
-        TokenStorageManager.sharedInstance.storeToken(token: accessToken.raw)
-      } else {
-        TokenStorageManager.sharedInstance.clearStoredToken()
-      }
-      TokenStorageManager.sharedInstance.storeUserId(userId: accessToken.subject)
-      
-      */
 
-      print("success")
+      DDLogDebug("Authorization success")
       
       // OAUTH認証完了後、中継用のAfterLoginViewに遷移する
       DispatchQueue.main.async {
@@ -71,29 +55,18 @@ class AppIDLoginViewController: UIViewController {
       }
     }
     
+    // OAuth認証キャンセル時の処理
     public func onAuthorizationCanceled() {
-      print("cancel")
+      DDLogDebug("Authorization canceled")
     }
     
+    // OAuth認証失敗時の処理
     public func onAuthorizationFailure(error: AuthorizationError) {
-      print(error)
+      DDLogDebug("Error: \(error.localizedDescription)")
     }
-  }
-  
-  @IBAction func log_in_anonymously(_ sender: AnyObject) {
-    /*
-    let token = TokenStorageManager.sharedInstance.loadStoredToken()
-    
-    AppID.sharedInstance.loginAnonymously(accessTokenString: token, authorizationDelegate: delegate())
-    */
-    AppID.sharedInstance.loginAnonymously(authorizationDelegate: delegate())
   }
   
   @IBAction func log_in(_ sender: AnyObject) {
-    /*
-    let token = TokenStorageManager.sharedInstance.loadStoredToken()
-    AppID.sharedInstance.loginWidget?.launch(accessTokenString: token, delegate: delegate())
-    */
     AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   }
 }
