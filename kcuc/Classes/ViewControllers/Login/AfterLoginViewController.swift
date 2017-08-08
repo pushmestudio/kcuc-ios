@@ -20,10 +20,10 @@ class AfterLoginViewController: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    // idTokenからユーザ名を取得
-    let userId = idToken?.name ?? "Guest"
+    // idTokenからユーザ名(メールアドレス)を取得
+    let userId = idToken?.email ?? "Guest"
     
-    // ゲストの場合（ユーザ名がない場合）は、UserDefaultsに保存しない
+    // ゲストの場合（ユーザ名がない場合）は、UserDefaultsに保存せず画面遷移
     if userId != "Guest" {
       // UserDefaultsは軽易なデータを保管する方法として活用されるケースが多いとのこと
       // Swift3.0からRenameされた(以前はNSUserDefaults)が、bridgeされているため同様に扱える
