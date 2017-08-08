@@ -15,7 +15,6 @@
 		89D2454F1E5E8D2A00AC12C3 /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */; };
 		89D245511E5ED90E00AC12C3 /* SearchedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D245501E5ED90E00AC12C3 /* SearchedProduct.swift */; };
 		89D245531E5EE44700AC12C3 /* SearchedProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D245521E5EE44700AC12C3 /* SearchedProductsViewModel.swift */; };
-		89EFB7AD1F274E7B00FDE37A /* AfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EFB7AC1F274E7B00FDE37A /* AfterLoginViewController.swift */; };
 		B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; };
 		B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */; };
@@ -80,7 +79,6 @@
 		89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
 		89D245501E5ED90E00AC12C3 /* SearchedProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProduct.swift; path = Models/SearchedProduct.swift; sourceTree = "<group>"; };
 		89D245521E5EE44700AC12C3 /* SearchedProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProductsViewModel.swift; path = ViewModels/SearchedProductsViewModel.swift; sourceTree = "<group>"; };
-		89EFB7AC1F274E7B00FDE37A /* AfterLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AfterLoginViewController.swift; path = Login/AfterLoginViewController.swift; sourceTree = "<group>"; };
 		89FC7A661F20551700756DF9 /* kcuc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kcuc.entitlements; sourceTree = "<group>"; };
 		B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = ../Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
 		B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = ../Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			children = (
 				B60EB2351E342FB4004C67FF /* LoginViewController.swift */,
 				895482321F20603300BCB8FC /* AppIDLoginViewController.swift */,
-				89EFB7AC1F274E7B00FDE37A /* AfterLoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -427,10 +424,16 @@
 			files = (
 			);
 			inputPaths = (
-				"",
+				"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/BluemixAppID/BluemixAppID.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BluemixAppID.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -462,13 +465,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kcuc-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,7 +491,6 @@
 				B6A782BB1E8428C600099C83 /* UINavigationItemExtension.swift in Sources */,
 				89C9752B1E72B8FB00BD6C3C /* DescriptionManager.swift in Sources */,
 				B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */,
-				89EFB7AD1F274E7B00FDE37A /* AfterLoginViewController.swift in Sources */,
 				B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */,
 				B6A782B11E84069A00099C83 /* SubscribedProductsViewModel.swift in Sources */,
 				895482331F20603300BCB8FC /* AppIDLoginViewController.swift in Sources */,

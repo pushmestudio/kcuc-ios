@@ -12,5 +12,13 @@ import CocoaLumberjackSwift
 class MainTabBarController: UITabBarController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    
+    if let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String {
+      DDLogDebug("login as \(userId)")
+      
+      dismiss(animated: true)
+    } else {
+      performSegue(withIdentifier: "ssoLoginTransition", sender: nil)
+    }
   }
 }
