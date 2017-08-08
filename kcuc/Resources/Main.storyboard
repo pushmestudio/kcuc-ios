@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7J-Jd-gUk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -260,28 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28f-Nz-hmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1618" y="0.0"/>
-        </scene>
-        <!--After Login View Controller-->
-        <scene sceneID="Q5e-La-SXO">
-            <objects>
-                <viewController storyboardIdentifier="AfterLoginView" id="bXx-zd-36e" customClass="AfterLoginViewController" customModule="kcuc" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Xp-Wq-v2Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="2p4-af-anp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7p5-hP-NNN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="AfterLoginSegue" id="gTw-Ii-nGh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lug-03-CJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-803" y="0.0"/>
+            <point key="canvasLocation" x="0.0" y="1050"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -296,6 +275,7 @@
                     <connections>
                         <segue destination="xvG-Po-TJa" kind="relationship" relationship="viewControllers" id="oQo-tq-myB"/>
                         <segue destination="E2p-ET-7lJ" kind="relationship" relationship="viewControllers" id="V9o-ad-CJR"/>
+                        <segue destination="t7J-Jd-gUk" kind="presentation" identifier="ssoLoginTransition" id="8sJ-On-ECl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
