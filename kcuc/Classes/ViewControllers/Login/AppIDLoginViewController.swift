@@ -28,7 +28,9 @@ extension AppIDLoginViewController: AuthorizationDelegate {
     DDLogDebug("Authorization success")
     
     // ViewControllerを閉じてTab画面へ戻る
-    dismiss(animated: true)
+    DispatchQueue.main.async {
+      self.dismiss(animated: true)
+    }
   }
   
   // OAuth認証キャンセル時の処理
