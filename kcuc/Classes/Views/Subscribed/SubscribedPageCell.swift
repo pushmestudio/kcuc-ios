@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class SubscribedPageCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!

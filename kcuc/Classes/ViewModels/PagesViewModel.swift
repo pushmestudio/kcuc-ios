@@ -7,7 +7,7 @@
 //
 
 import ObjectMapper
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class PagesViewModel: Mappable {
   var subscribedPages: [Page] = []

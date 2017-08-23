@@ -8,7 +8,7 @@
 
 import Foundation
 import WebKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 import SVProgressHUD
 
 class PageViewController: UIViewController {
