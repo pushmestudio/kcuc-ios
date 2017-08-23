@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class LoginViewController: UIViewController {
   @IBOutlet weak var userIdInputArea: UITextField!

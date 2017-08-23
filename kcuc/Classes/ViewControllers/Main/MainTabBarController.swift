@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class MainTabBarController: UITabBarController {
   override func viewDidAppear(_ animated: Bool) {

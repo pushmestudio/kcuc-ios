@@ -13,10 +13,6 @@
 		89D2454F1E5E8D2A00AC12C3 /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */; };
 		89D245511E5ED90E00AC12C3 /* SearchedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D245501E5ED90E00AC12C3 /* SearchedProduct.swift */; };
 		89D245531E5EE44700AC12C3 /* SearchedProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D245521E5EE44700AC12C3 /* SearchedProductsViewModel.swift */; };
-		B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; };
-		B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */; };
-		B60EB22D1E324A50004C67FF /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60EB2331E342AB7004C67FF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2321E342AB7004C67FF /* MainTabBarController.swift */; };
 		B60EB2361E342FB4004C67FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2351E342FB4004C67FF /* LoginViewController.swift */; };
 		B60EB2391E343A33004C67FF /* SubscribedPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60EB2381E343A33004C67FF /* SubscribedPageCell.swift */; };
@@ -29,14 +25,6 @@
 		B6A782B31E84080D00099C83 /* SubscribedProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B21E84080D00099C83 /* SubscribedProductsViewController.swift */; };
 		B6A782B51E840A1200099C83 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782B41E840A1200099C83 /* Product.swift */; };
 		B6A782BB1E8428C600099C83 /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A782BA1E8428C600099C83 /* UINavigationItemExtension.swift */; };
-		B6B07A161E87994C0079065F /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B07A151E87994C0079065F /* SVProgressHUD.framework */; };
-		B6B07A171E87994C0079065F /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B07A151E87994C0079065F /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; };
-		B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104181E0FE3E900C30790 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; };
-		B6B1041E1E0FE3E900C30790 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B104191E0FE3E900C30790 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6B1041F1E0FE3E900C30790 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; };
-		B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6B1041A1E0FE3E900C30790 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6B1042A1E12BD3D00C30790 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B104291E12BD3D00C30790 /* Page.swift */; };
 		B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1042B1E12BF7400C30790 /* UsersViewModel.swift */; };
 		B6ECCEA21E887D0100911830 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6ECCEA11E887D0100911830 /* Settings.bundle */; };
@@ -45,28 +33,11 @@
 		B6EDC09E1E0F808800041FAC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0971E0F808800041FAC /* Info.plist */; };
 		B6EDC09F1E0F808800041FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EDC0981E0F808800041FAC /* LaunchScreen.storyboard */; };
 		B6F5E1FE1E48B709007C042A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F5E1FD1E48B709007C042A /* Main.storyboard */; };
+		DA98F36A4E5BB2E6A37F68CB /* Pods_kcuc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA20CFC7591B43732C3F6AF /* Pods_kcuc.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B6A5C2E41E0F888C007051C3 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B6B07A171E87994C0079065F /* SVProgressHUD.framework in Embed Frameworks */,
-				B60EB22A1E324842004C67FF /* CocoaLumberjackSwift.framework in Embed Frameworks */,
-				B6B1041E1E0FE3E900C30790 /* ObjectMapper.framework in Embed Frameworks */,
-				B60EB22D1E324A50004C67FF /* CocoaLumberjack.framework in Embed Frameworks */,
-				B6B1041C1E0FE3E900C30790 /* Alamofire.framework in Embed Frameworks */,
-				B6B104201E0FE3E900C30790 /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		1AA20CFC7591B43732C3F6AF /* Pods_kcuc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kcuc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BCCF541EB20DED005888DC /* SearchedProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProductCell.swift; path = Views/Subscribed/SearchedProductCell.swift; sourceTree = "<group>"; };
 		89C975281E72B8EF00BD6C3C /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Managers/APIClient.swift; sourceTree = "<group>"; };
 		89C9752A1E72B8FB00BD6C3C /* DescriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionManager.swift; path = Managers/DescriptionManager.swift; sourceTree = "<group>"; };
@@ -100,6 +71,8 @@
 		B6EDC0971E0F808800041FAC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6EDC0981E0F808800041FAC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6F5E1FD1E48B709007C042A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB5AEBEBDDF1895ABBFBC904 /* Pods-kcuc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kcuc.release.xcconfig"; path = "Pods/Target Support Files/Pods-kcuc/Pods-kcuc.release.xcconfig"; sourceTree = "<group>"; };
+		FD898AA66BF8F77D63438444 /* Pods-kcuc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kcuc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kcuc/Pods-kcuc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,18 +80,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6B07A161E87994C0079065F /* SVProgressHUD.framework in Frameworks */,
-				B60EB2291E324842004C67FF /* CocoaLumberjackSwift.framework in Frameworks */,
-				B6B1041D1E0FE3E900C30790 /* ObjectMapper.framework in Frameworks */,
-				B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */,
-				B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */,
-				B6B1041F1E0FE3E900C30790 /* SwiftyJSON.framework in Frameworks */,
+				DA98F36A4E5BB2E6A37F68CB /* Pods_kcuc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19441498ECF6398C3A3CBEB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AA20CFC7591B43732C3F6AF /* Pods_kcuc.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E9AFF0A8D81DA4113EBD455 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD898AA66BF8F77D63438444 /* Pods-kcuc.debug.xcconfig */,
+				FB5AEBEBDDF1895ABBFBC904 /* Pods-kcuc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B60EB22E1E324EBB004C67FF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +213,8 @@
 				B6ECCEA11E887D0100911830 /* Settings.bundle */,
 				B6EDC0791E0F7E3400041FAC /* kcuc */,
 				B6EDC0781E0F7E3400041FAC /* Products */,
+				2E9AFF0A8D81DA4113EBD455 /* Pods */,
+				19441498ECF6398C3A3CBEB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,11 +288,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6EDC08B1E0F7E3500041FAC /* Build configuration list for PBXNativeTarget "kcuc" */;
 			buildPhases = (
+				14F37FC57F88422C8422762D /* [CP] Check Pods Manifest.lock */,
 				B6EDC0731E0F7E3400041FAC /* Sources */,
 				B6EDC0741E0F7E3400041FAC /* Frameworks */,
 				B6EDC0751E0F7E3400041FAC /* Resources */,
-				B6A5C2E41E0F888C007051C3 /* Embed Frameworks */,
-				B6B104231E0FE64800C30790 /* Carthage */,
+				D62A48FB055549D366A3016F /* [CP] Embed Pods Frameworks */,
+				88F34B8FB4D835FA007D787D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,24 +354,64 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B6B104231E0FE64800C30790 /* Carthage */ = {
+		14F37FC57F88422C8422762D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjackSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjack.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = Carthage;
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kcuc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88F34B8FB4D835FA007D787D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D62A48FB055549D366A3016F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -512,12 +540,10 @@
 		};
 		B6EDC08C1E0F7E3500041FAC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD898AA66BF8F77D63438444 /* Pods-kcuc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/kcuc/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -529,12 +555,10 @@
 		};
 		B6EDC08D1E0F7E3500041FAC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB5AEBEBDDF1895ABBFBC904 /* Pods-kcuc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/kcuc/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

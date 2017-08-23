@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class KCUCLogFormatter: NSObject, DDLogFormatter {
   let dateFormatter: DateFormatter = DateFormatter()
