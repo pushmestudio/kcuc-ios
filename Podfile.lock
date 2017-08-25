@@ -1,0 +1,18 @@
+PODS:
+  - BluemixAppID (1.0.6):
+    - BMSCore
+  - BMSAnalyticsAPI (2.2.1)
+  - BMSCore (2.3.2):
+    - BMSAnalyticsAPI (~> 2.2)
+
+DEPENDENCIES:
+  - BluemixAppID
+
+SPEC CHECKSUMS:
+  BluemixAppID: 55544a3fad87e3d94c22cbf65ed87dfb3c85508d
+  BMSAnalyticsAPI: 2e07dee6452e3cdbdc5fd0ee7362b66a281e3963
+  BMSCore: 30674d30566134125e9bee043ccbea652445ca92
+
+PODFILE CHECKSUM: 83de078188ce0fe5fe275183f6989d35c82c3153
+
+COCOAPODS: 1.2.1
