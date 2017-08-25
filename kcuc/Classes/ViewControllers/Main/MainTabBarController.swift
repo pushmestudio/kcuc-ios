@@ -15,8 +15,10 @@ class MainTabBarController: UITabBarController {
     
     if let userId = UserDefaults.standard.object(forKey: "kcuc.userId") as? String {
       DDLogDebug("login as \(userId)")
+      
+      dismiss(animated: true)
     } else {
-      performSegue(withIdentifier: "showLoginModal", sender: nil)
+      performSegue(withIdentifier: "ssoLoginTransition", sender: nil)
     }
   }
 }

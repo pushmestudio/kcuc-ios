@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5814D4928CA302D8779D825B /* Pods_kcuc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7986AD6F09EFE0A26D0ED2FC /* Pods_kcuc.framework */; };
+		895482331F20603300BCB8FC /* AppIDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895482321F20603300BCB8FC /* AppIDLoginViewController.swift */; };
 		89BCCF551EB20DED005888DC /* SearchedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCCF541EB20DED005888DC /* SearchedProductCell.swift */; };
 		89C975291E72B8EF00BD6C3C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C975281E72B8EF00BD6C3C /* APIClient.swift */; };
 		89C9752B1E72B8FB00BD6C3C /* DescriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C9752A1E72B8FB00BD6C3C /* DescriptionManager.swift */; };
@@ -67,12 +69,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0260A7334E9FC7A122A434F8 /* Pods-kcuc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kcuc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kcuc/Pods-kcuc.debug.xcconfig"; sourceTree = "<group>"; };
+		44E701F8B01F9A8D67E3950C /* Pods-kcuc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kcuc.release.xcconfig"; path = "Pods/Target Support Files/Pods-kcuc/Pods-kcuc.release.xcconfig"; sourceTree = "<group>"; };
+		7986AD6F09EFE0A26D0ED2FC /* Pods_kcuc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kcuc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		895482321F20603300BCB8FC /* AppIDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIDLoginViewController.swift; path = Login/AppIDLoginViewController.swift; sourceTree = "<group>"; };
 		89BCCF541EB20DED005888DC /* SearchedProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProductCell.swift; path = Views/Subscribed/SearchedProductCell.swift; sourceTree = "<group>"; };
 		89C975281E72B8EF00BD6C3C /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Managers/APIClient.swift; sourceTree = "<group>"; };
 		89C9752A1E72B8FB00BD6C3C /* DescriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescriptionManager.swift; path = Managers/DescriptionManager.swift; sourceTree = "<group>"; };
 		89D2454E1E5E8D2A00AC12C3 /* ProductSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
 		89D245501E5ED90E00AC12C3 /* SearchedProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProduct.swift; path = Models/SearchedProduct.swift; sourceTree = "<group>"; };
 		89D245521E5EE44700AC12C3 /* SearchedProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedProductsViewModel.swift; path = ViewModels/SearchedProductsViewModel.swift; sourceTree = "<group>"; };
+		89FC7A661F20551700756DF9 /* kcuc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kcuc.entitlements; sourceTree = "<group>"; };
 		B60EB2281E324842004C67FF /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = ../Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
 		B60EB22B1E324A50004C67FF /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = ../Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
 		B60EB22F1E324ED9004C67FF /* DDLogFormatterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDLogFormatterExtension.swift; path = Extensions/DDLogFormatterExtension.swift; sourceTree = "<group>"; };
@@ -113,12 +120,22 @@
 				B60EB22C1E324A50004C67FF /* CocoaLumberjack.framework in Frameworks */,
 				B6B1041B1E0FE3E900C30790 /* Alamofire.framework in Frameworks */,
 				B6B1041F1E0FE3E900C30790 /* SwiftyJSON.framework in Frameworks */,
+				5814D4928CA302D8779D825B /* Pods_kcuc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B321599FDAA5698C368CADC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0260A7334E9FC7A122A434F8 /* Pods-kcuc.debug.xcconfig */,
+				44E701F8B01F9A8D67E3950C /* Pods-kcuc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B60EB22E1E324EBB004C67FF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B60EB2351E342FB4004C67FF /* LoginViewController.swift */,
+				895482321F20603300BCB8FC /* AppIDLoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -228,6 +246,8 @@
 				B6ECCEA11E887D0100911830 /* Settings.bundle */,
 				B6EDC0791E0F7E3400041FAC /* kcuc */,
 				B6EDC0781E0F7E3400041FAC /* Products */,
+				1B321599FDAA5698C368CADC /* Pods */,
+				D9B414E8C0C7D7E557045940 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,6 +262,7 @@
 		B6EDC0791E0F7E3400041FAC /* kcuc */ = {
 			isa = PBXGroup;
 			children = (
+				89FC7A661F20551700756DF9 /* kcuc.entitlements */,
 				B6EDC0931E0F808800041FAC /* Resources */,
 				B6EDC08E1E0F808800041FAC /* Classes */,
 				B6B104221E0FE48D00C30790 /* Libs */,
@@ -294,6 +315,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		D9B414E8C0C7D7E557045940 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7986AD6F09EFE0A26D0ED2FC /* Pods_kcuc.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,11 +330,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6EDC08B1E0F7E3500041FAC /* Build configuration list for PBXNativeTarget "kcuc" */;
 			buildPhases = (
+				C69AC0322EF9CDBC3019CA46 /* [CP] Check Pods Manifest.lock */,
 				B6EDC0731E0F7E3400041FAC /* Sources */,
 				B6EDC0741E0F7E3400041FAC /* Frameworks */,
 				B6EDC0751E0F7E3400041FAC /* Resources */,
 				B6A5C2E41E0F888C007051C3 /* Embed Frameworks */,
 				B6B104231E0FE64800C30790 /* Carthage */,
+				9EA6E6ED17E71244182C6DD7 /* [CP] Embed Pods Frameworks */,
+				750A0E087C7017133A534962 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,6 +361,11 @@
 					B6EDC0761E0F7E3400041FAC = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -366,6 +403,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		750A0E087C7017133A534962 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EA6E6ED17E71244182C6DD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/BluemixAppID/BluemixAppID.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BluemixAppID.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kcuc/Pods-kcuc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6B104231E0FE64800C30790 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,6 +459,24 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		C69AC0322EF9CDBC3019CA46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kcuc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -401,6 +493,7 @@
 				B60EB23E1E343D47004C67FF /* DDLogFormatterExtension.swift in Sources */,
 				B6B1042C1E12BF7400C30790 /* UsersViewModel.swift in Sources */,
 				B6A782B11E84069A00099C83 /* SubscribedProductsViewModel.swift in Sources */,
+				895482331F20603300BCB8FC /* AppIDLoginViewController.swift in Sources */,
 				B60EB23D1E343CAB004C67FF /* SubscribedPagesViewController.swift in Sources */,
 				B60EB2331E342AB7004C67FF /* MainTabBarController.swift in Sources */,
 				89D245531E5EE44700AC12C3 /* SearchedProductsViewModel.swift in Sources */,
@@ -512,8 +605,11 @@
 		};
 		B6EDC08C1E0F7E3500041FAC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0260A7334E9FC7A122A434F8 /* Pods-kcuc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = kcuc/kcuc.entitlements;
+				DEVELOPMENT_TEAM = J75TE7UTLY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -529,8 +625,11 @@
 		};
 		B6EDC08D1E0F7E3500041FAC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44E701F8B01F9A8D67E3950C /* Pods-kcuc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = kcuc/kcuc.entitlements;
+				DEVELOPMENT_TEAM = J75TE7UTLY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
