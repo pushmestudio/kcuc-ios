@@ -9,6 +9,7 @@ target 'kcuc' do
   pod 'ObjectMapper'
   pod 'CocoaLumberjack/Swift'
   pod 'SVProgressHUD'
+  pod 'BluemixAppID'
 end
 
 post_install do | installer |
