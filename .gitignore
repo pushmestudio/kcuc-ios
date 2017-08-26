@@ -19,7 +19,12 @@ DerivedData
 Pods/*
 Podfile.lock
 
+# Cocoapods
+Pods/
+
 # others
 *.swp
 !.gitkeep
 .DS_Store
+
+UserInterfaceState.xcuserstate
