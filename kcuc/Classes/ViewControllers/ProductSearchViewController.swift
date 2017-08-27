@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class ProductSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   // MARK:Pproperties

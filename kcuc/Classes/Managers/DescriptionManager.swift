@@ -7,7 +7,7 @@
 //
 
 import SwiftyJSON
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class DescriptionManager {
   
