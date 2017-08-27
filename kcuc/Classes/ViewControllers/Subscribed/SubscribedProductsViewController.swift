@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 import SVProgressHUD
 
 class SubscribedProductsViewController: UITableViewController {

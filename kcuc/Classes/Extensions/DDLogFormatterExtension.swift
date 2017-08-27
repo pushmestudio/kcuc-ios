@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class KCUCLogFormatter: NSObject, DDLogFormatter {
   let dateFormatter: DateFormatter = DateFormatter()
@@ -18,7 +18,7 @@ class KCUCLogFormatter: NSObject, DDLogFormatter {
     dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss:SSS"
   }
   
-  func format(message logMessage: DDLogMessage!) -> String! {
+  func format(message logMessage: DDLogMessage) -> String? {
     let logLevel: String
     switch logMessage.flag {
     case DDLogFlag.error:

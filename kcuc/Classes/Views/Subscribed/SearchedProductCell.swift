@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
+import CocoaLumberjack
 
 class SearchedProductCell: UITableViewCell {
   @IBOutlet weak var pageName: UILabel!

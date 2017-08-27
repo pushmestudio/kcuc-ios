@@ -1,4 +1,3 @@
-# Xcode (from gitignore.io)
 build/
 *.pbxuser
 !default.pbxuser
@@ -16,8 +15,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-# Carthage
-Carthage/
+# CocoaPod
+Pods/*
+Podfile.lock
 
 # Cocoapods
 Pods/
@@ -26,4 +26,5 @@ Pods/
 *.swp
 !.gitkeep
 .DS_Store
+
 UserInterfaceState.xcuserstate

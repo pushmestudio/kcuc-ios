@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
+import CocoaLumberjack
 import ObjectMapper
 
 class SubscribedProductsViewModel: Mappable {
